@@ -1,0 +1,13 @@
+{
+  "paymentProviders": ["stripe", "vipps", "klarna"],
+  "locales": [
+    {
+      "isDefault": true,
+      "displayName": "English - US",
+      "urlPrefix": "",
+      "appLanguage": "en-US",
+      "crystallizeCatalogueLanguage": "en",
+      "defaultCurrency": "NOK"
+    }
+  ]
+}

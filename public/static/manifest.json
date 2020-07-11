@@ -1,0 +1,14 @@
+{
+  "name": "Ørn forlag",
+  "short_name": "ornforlag.no",
+  "icons": [
+    {
+      "src": "/static/google-touch-icon.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}
