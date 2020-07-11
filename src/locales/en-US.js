@@ -2,76 +2,76 @@ export default {
   translation: {
     common: {
       price: '{{value, currency}}',
-      vat: 'Mva.: {{value, currency}}'
+      vat: 'VAT: {{value, currency}}'
     },
     frontpage: {
-      title: 'Hjem'
+      title: 'Home'
     },
     customer: {
-      name: 'Navn',
-      firstName: 'Fornavn',
-      lastName: 'Etternavnn',
-      streetAddress: 'Gate',
-      postalCode: 'Postnr.',
-      email: 'Epost',
-      emailPlaceholder: 'deg@ditt.sted',
+      name: 'Name',
+      firstName: 'First name',
+      lastName: 'Last name',
+      streetAddress: 'Street address',
+      postalCode: 'Postal code',
+      email: 'Email',
+      emailPlaceholder: 'you@your.place',
       login: {
-        title: 'Logg inn',
-        loggedIn: 'Du er logget inn',
+        title: 'Login',
+        loggedIn: 'You are logged in',
         instructions:
-          'Tast inn din epostaddresse og vi vil sende deg en passordfri innlogginslink',
-        emailAddressInvalid: 'Vennligst oppgi en gyldig epostaddresse',
-        sendMagicLink: 'Send meg innloggingslink på epost'
+          'Enter your email address and we’ll send a magic login link to your inbox.',
+        emailAddressInvalid: 'Please enter a valid email address',
+        sendMagicLink: 'Send me a magic link'
       }
     },
     product: {
-      relatedProduct: 'Relatert produkt',
-      relatedProduct_plural: 'Relaterte produkter',
-      addToBasket: 'Legg i hurtigkurv',
-      buy: 'KJØP'
+      relatedProduct: 'Related product',
+      relatedProduct_plural: 'Related products',
+      addToBasket: 'Add to Basket',
+      buy: 'BUY'
     },
     basket: {
-      title: 'Hurtigkurv',
-      loading: 'Vennligst vent. Henter din hurtigkurv...',
-      removeItem: 'Fjern {{name}} fra hurtigkurven',
-      empty: 'Hurtigkurven din er tom',
-      empty_inCheckout: 'Du har ikke lagt til noe i hurtigkurven enda.',
+      title: 'Basket',
+      loading: 'Hold on. Getting your basket...',
+      removeItem: 'Remove {{name}} from basket',
+      empty: 'Your basket is empty',
+      empty_inCheckout: 'You have no items in your basket',
       remainingUntilFreeShipping:
-        'Kjøp for {{amount, currency}} ekstra for å oppnå gratis frakt',
-      totalPrice: 'Totalt',
-      discount: 'Fratrekk',
-      totalPriceAfterDiscount: 'Totalt etter fratrekk',
-      shippingPrice: 'Frakt',
-      vat: 'Mva.',
-      totalToPay: 'Til Vipps betaling',
-      goToCheckout: 'Gå til Vipps betaling'
+        'Add another {{amount, currency}} to your order for free shipping.',
+      totalPrice: 'Total price',
+      discount: 'Discount',
+      totalPriceAfterDiscount: 'Total after discount',
+      shippingPrice: 'Shipping',
+      vat: 'VAT',
+      totalToPay: 'To pay',
+      goToCheckout: 'Go to checkout'
     },
     checkout: {
-      title: 'Betaling med Vipps',
-      payNow: 'Betal med Vipps Hurtigkasse',
-      choosePaymentMethod: 'Tast inn ditt Vipps nr',
-      noPaymentProvidersConfigured: 'Ingen betalingstjenester er konfigurert',
+      title: 'Checkout',
+      payNow: 'Pay now',
+      choosePaymentMethod: 'Choose payment method',
+      noPaymentProvidersConfigured: 'No payment providers are configured',
       paymentProviderNotConfigured:
-        'Betalingstjenesten {{name}} er ikke konfigurert',
+        'Payment provider {{name}} is not configured',
       paymentProviderLogoAlt: 'Logo for {{name}}',
-      loadingPaymentGateway: 'Laster betalingstjenesten...',
+      loadingPaymentGateway: 'Initialising payment gateway...',
       loadingPaymentGatewayFailed:
-        'Oisann. Betalingstjenesten {{name}} kan ikke lastes akkurat nå',
+        'Oh now. Could not load the {{name}} payment gateway',
       confirmation: {
-        title: 'Ordrebekreftelse',
-        shortStatus: `Din ordre er bekreftet`,
-        shortStatus_withEmail: `Din ordre er bekreftet. En kopi av ordren er send til {{email}}`
+        title: 'Order confirmation',
+        shortStatus: `Your order has been confirmed.`,
+        shortStatus_withEmail: `Your order has been confirmed. A copy of your order has been sent to {{email}}`
       }
     },
     order: {
-      total: 'Totalt',
-      item: 'Vare',
-      item_plural: 'Varer'
+      total: 'Total',
+      item: 'Order item',
+      item_plural: 'Order items'
     },
     layout: {
-      menu: 'Meny',
-      ecomBy: 'Nettside av',
-      loadingVideo: 'Laster video'
+      menu: 'Menu',
+      ecomBy: 'eCommerce by',
+      loadingVideo: 'Loading video'
     }
   }
 };
