@@ -10,13 +10,13 @@ function getTotalAmount(acc, lineItem) {
 
 function orderToVippsBody({ basket, orderId, host, multilingualUrlPrefix }) {
   const totalCartAmount = basket.lineItems.reduce(getTotalAmount, 0);
-  const shippingCost = 0;
+  const shippingCost = 99;
 
   return {
     merchantInfo: {
       merchantSerialNumber: process.env.VIPPS_MERCHANT_SERIAL,
       callbackPrefix: `${host}/api/payment-providers/vipps/order-update`,
-      shippingDetailsPrefix: host,
+      shippingDetailsPrefix: `${host}/api/payment-providers/vipps/order-update`,
       fallBack: `${host}/api/payment-providers/vipps/fallback/${orderId}?multilingualUrlPrefix=${multilingualUrlPrefix}`,
       consentRemovalPrefix: `${host}/api/payment-providers/vipps/constent-removal`,
       paymentType: 'eComm Express Payment',
@@ -36,7 +36,7 @@ function orderToVippsBody({ basket, orderId, host, multilingualUrlPrefix }) {
     transaction: {
       orderId,
       amount: totalCartAmount,
-      transactionText: 'Crystallize NextJS boilerplate test transaction'
+      transactionText: 'ornforlag.no, netthandel transaksjon.'
     }
   };
 }

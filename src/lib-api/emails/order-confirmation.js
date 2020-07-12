@@ -29,18 +29,22 @@ export default async function sendOrderConfirmation(orderId) {
     <mj-section>
       <mj-column>
         <mj-text>
-          <h1>Ordre bekreftelse</h1>
-          <p>Takk for din ordre, vi har sendt en kopi til din epost.</p>
+          <h1>Ørn forlag | Ordre bekreftelse </h1>
+          <p>Takk for din ordre hos ornforlag.no! Den ble betalt med Vipps Hurtigkasse og bøkene(boka) blir pakket og sendt til adressen oppgitt av deg i Vipps appen.</p>
           <p>
-            Ordre Nr.: <strong>#${order.id}</strong>
+           Ditt Ordre Nr.: <h2><strong>${order.id}</strong></h2>
           </p>
           <p>
             Fornavn: <strong>${order.customer.firstName}</strong><br />
             Etternavn: <strong>${order.customer.lastName}</strong><br />
             Epost: <strong>${email}</strong>
+            Mobil nr.: <strong>${order.customer.addresses[4]}</strong>
+            Leveranse informasjon:  <strong> ${order.customer.addresses[5]}, ${
+      order.customer.addresses[6]
+    }, ${order.customer.addresses[7]}, ${order.customer.addresses[8]} </strong>
            </p>
           <p>
-            Totalt: <strong>${formatCurrency({
+            Totalt u/frakt: <strong>${formatCurrency({
               amount: order.total.net,
               currency: order.total.currency
             })}</strong>
@@ -60,7 +64,17 @@ export default async function sendOrderConfirmation(orderId) {
                 amount: item.price.net * item.quantity,
                 currency: item.price.currency
               })}</td>
-            </tr>`
+
+              Kontakt <strong>Bjørn Olav Tveit</strong> på bjorn@ornforlag.no eller via <strong>Tlf.: (+47) 909 60 404</strong> hvis det er noen spørsmål eller ved feil.
+            <br>
+            Ørn forlag<br>
+Veståsen 4<br>
+1362, Hosle,<br>
+ Norge<br>
+ <br>
+Org.nr.: 994304399 MVA <br>
+Kontonr.: 9235.27.10220
+              </tr>`
           )}
         </mj-table>
       </mj-column>

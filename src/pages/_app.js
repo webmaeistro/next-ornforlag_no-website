@@ -81,7 +81,7 @@ MyApp.getInitialProps = async function ({ ctx }) {
         mainNavigation: [],
         tenant: {
           defaults: {
-            currency: 'usd'
+            currency: 'NOK'
           }
         }
       }
