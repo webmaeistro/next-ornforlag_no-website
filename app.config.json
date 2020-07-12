@@ -1,5 +1,5 @@
 {
-  "paymentProviders": ["stripe", "vipps", "klarna"],
+  "paymentProviders": ["vipps"],
   "locales": [
     {
       "isDefault": true,

@@ -1,11 +1,12 @@
 /* eslint-disable react/display-name */
 import React, { useState } from 'react';
-import { useRouter } from 'next/router';
+//import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
-import Head from 'next/head';
+//import Head from 'next/head';
 import styled from 'styled-components';
 
-import appConfig, { useLocale } from 'lib/app-config';
+import appConfig from 'lib/app-config';
+//              ^ , { useLocale }
 import { useT } from 'lib/i18n';
 
 import {
@@ -20,15 +21,9 @@ import {
   SectionHeader
 } from '../styles';
 
-// {{#if payment-provider-stripe}}
-const StripeCheckout = dynamic(() => import('./stripe'));
-// {{/if}}
-// {{#if payment-provider-klarna}}
-const KlarnaCheckout = dynamic(() => import('./klarna'));
-// {{/if}}
-// {{#if payment-provider-vipps}}
+//const StripeCheckout = dynamic(() => import('./stripe'));
+//const KlarnaCheckout = dynamic(() => import('./klarna'));
 const VippsCheckout = dynamic(() => import('./vipps'));
-// {{/if}}
 
 const Row = styled.div`
   display: flex;
@@ -47,8 +42,8 @@ const Inner = styled.div`
 
 export default function Payment({ items, currency }) {
   const t = useT();
-  const locale = useLocale();
-  const router = useRouter();
+  // const locale = useLocale();
+  // const router = useRouter();
   const [paymentProvider, setPaymentProvider] = useState(null);
   const [state] = useState({
     //        ^ , setState
@@ -66,7 +61,7 @@ export default function Payment({ items, currency }) {
   };
 
   const paymentProviders = [
-    // {{#if payment-provider-stripe}}
+    /*
     {
       name: 'stripe',
       color: '#6773E6',
@@ -98,8 +93,6 @@ export default function Payment({ items, currency }) {
         </PaymentProvider>
       )
     },
-    // {{/if}}
-    // {{#if payment-provider-klarna}}
     {
       name: 'klarna',
       color: '#F8AEC2',
@@ -114,12 +107,11 @@ export default function Payment({ items, currency }) {
         </PaymentProvider>
       )
     },
-    // {{/if}}
-    // {{#if payment-provider-vipps}}
+    */
     {
       name: 'vipps',
-      color: '#fff',
-      logo: '/static/vipps-logo.png',
+      color: '#FF5B24',
+      logo: '/static/pay_with_vipps_rect_210_NO@2x.png',
       render: () => (
         <PaymentProvider>
           <VippsCheckout
@@ -133,7 +125,6 @@ export default function Payment({ items, currency }) {
         </PaymentProvider>
       )
     }
-    // {{/if}}
   ];
 
   return (
