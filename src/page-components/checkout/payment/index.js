@@ -10,9 +10,9 @@ import { useT } from 'lib/i18n';
 
 import {
   Form,
-  Input,
-  InputGroup,
-  Label,
+  //Input,
+  //InputGroup,
+  //Label,
   PaymentSelector,
   PaymentProviders,
   PaymentButton,
@@ -50,7 +50,8 @@ export default function Payment({ items, currency }) {
   const locale = useLocale();
   const router = useRouter();
   const [paymentProvider, setPaymentProvider] = useState(null);
-  const [state, setState] = useState({
+  const [state] = useState({
+    //        ^ , setState
     firstName: '',
     lastName: '',
     email: ''
