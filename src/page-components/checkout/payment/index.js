@@ -139,6 +139,7 @@ export default function Payment({ items, currency }) {
     <Inner>
       <Form noValidate>
         <Row>
+          {/*
           <InputGroup>
             <Label htmlFor="firstname">{t('customer.firstName')}</Label>
             <Input
@@ -173,6 +174,7 @@ export default function Payment({ items, currency }) {
               required
             />
           </InputGroup>
+           */}
         </Row>
 
         <SectionHeader>{t('checkout.choosePaymentMethod')}</SectionHeader>

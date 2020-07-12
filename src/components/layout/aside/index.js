@@ -11,7 +11,7 @@ import { Basket, Header, Footer } from './styles';
 const CheckoutBtn = styled(Button)`
   width: 100%;
   margin: 20px 0;
-  border: 2px solid var(--color-text-main);
+  border: 2px solid var(--color-vipps-purple);
   padding: 10px 20px;
   display: block;
   font-size: 16px;
@@ -19,8 +19,8 @@ const CheckoutBtn = styled(Button)`
   text-align: center;
 
   &:not([disabled]):hover {
-    background: var(--color-text-main);
-    color: var(--color-main-background);
+    background: var(--color-vipps-orange);
+    color: var(--color-vipps-whitge);
     text-decoration: none;
   }
 

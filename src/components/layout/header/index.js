@@ -22,7 +22,7 @@ export default function Header({ simple }) {
       <Link href="/">
         <a>
           <Logo>
-            <img src="/static/shop-logo.svg" alt="" />
+            <img src="/static/shop-logo.svg" alt="Ørn forlag logo" />
           </Logo>
         </a>
       </Link>
