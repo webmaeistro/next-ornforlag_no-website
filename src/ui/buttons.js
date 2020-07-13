@@ -24,8 +24,8 @@ const Outer = styled.button.attrs((p) => ({
 }))`
   min-width: ${(p) => (p.width ? p.width : '120px')};
   display: inline-flex;
-  border-radius: 0;
-  border: none;
+  border-radius: 21;
+
   border: 2px solid var(--color-text-main);
   padding: 0;
   appearance: none;
