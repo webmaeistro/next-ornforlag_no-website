@@ -50,7 +50,7 @@ export const Totals = () => {
                   {t('common.price', { value: shipping.unit_price })}
                 </StrikeThrough>
               )}{' '}
-              {t('common.price', { value: 0 })}
+              {t('common.price', { value: 99 })}
             </span>
           ) : (
             <span>

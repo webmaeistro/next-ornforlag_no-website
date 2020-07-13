@@ -54,7 +54,7 @@ function Checkout() {
                       <CurrencyValue value={shipping.unit_price} />
                     </StrikeThrough>
                   )}{' '}
-                  <CurrencyValue value="0" />
+                  <CurrencyValue value="99" />
                 </span>
               ) : (
                 <span>
