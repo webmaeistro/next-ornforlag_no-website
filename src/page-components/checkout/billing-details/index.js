@@ -31,7 +31,7 @@ const BillingDetails = ({ order }) => {
   return (
     <Outer>
       <Inner>
-        <H3>Ordre detaljer fra ornforlag.no</H3>
+        <H3>Ordre detaljer </H3>
         <p>
           {t('customer.name')}:{' '}
           <strong>

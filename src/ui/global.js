@@ -19,7 +19,7 @@ export default createGlobalStyle`
     --color-vipps-signalpurple: #5E3DC2;
     --color-vipps-rust: #9B3716;
   }
-
+/*
   /* Uncomment this to enable dark mode */
   @media (prefers-color-scheme: dark) {
     :root {
@@ -29,7 +29,7 @@ export default createGlobalStyle`
       --color-box-background: #555;
     }
   } 
-  
+  */
   html {
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;

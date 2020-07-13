@@ -3,9 +3,9 @@
   "locales": [
     {
       "isDefault": true,
-      "displayName": "English - US",
+      "displayName": "Norwegian - NO",
       "urlPrefix": "",
-      "appLanguage": "en-US",
+      "appLanguage": "nb-NO",
       "crystallizeCatalogueLanguage": "en",
       "defaultCurrency": "NOK"
     }
