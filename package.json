@@ -1,6 +1,6 @@
 {
   "name": "next-ornforlag_no-website",
-  "version": "1.0.3",
+  "version": "1.0.9",
   "license": "MIT",
   "private": true,
   "author": "Martin Andersen <marander@protonmail.com> (@webmaeistro) , haakon and stavros",
@@ -34,11 +34,15 @@
     ]
   },
   "dependencies": {
+    "framer-motion": "^1.11.1",
     "@crystallize/content-transformer": "^5.2.1",
     "@crystallize/grid-renderer": "^2.0.1",
     "@crystallize/node-klarna": "^3.0.2",
+    "pusher": "^3.0.1",
+    "pusher-js": "^6.0.3",
     "@crystallize/node-vipps": "^0.1.0",
     "@crystallize/react-image": "^3.1.0",
+    "timeago-react": "^3.0.0",
     "@crystallize/react-layout": "^3.2.0",
     "@nerdenough/mjml-ncc-bundle": "^1.1.1",
     "@sendgrid/mail": "^7.2.1",
