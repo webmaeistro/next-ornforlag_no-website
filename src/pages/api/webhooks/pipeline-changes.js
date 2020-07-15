@@ -17,18 +17,18 @@ export default async (req, res) => {
 
   const actions = [];
 
-  const inStorePipeline = inStages.find(
-    (p) => p.pipeline === 'In store pickup'
-  );
+  const inStorePipeline = inStages.find((p) => p.pipeline === 'ornpipe');
   if (inStorePipeline) {
     switch (inStorePipeline.stage) {
       case 'ny-ordre':
-        actions.push('Notify staff of new order');
+        actions.push('Gi lager avd beskjed at ny ordre har kommet ');
         break;
       case 'pakking':
-        actions.push('Inform the user: packing begun');
+        actions.push(
+          'Inform the user: Boken blir pakket og gjort klar for sending '
+        );
         break;
-     case 'Postet':
+      case 'Postet':
         // Vipps capture
         await getClient().capture({
           orderId: order.id,

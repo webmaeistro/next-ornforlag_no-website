@@ -29,7 +29,7 @@ export default async function sendOrderConfirmation(orderId) {
     <mj-section>
       <mj-column>
         <mj-text>
-          <h1>Ørn forlag | Ordre bekreftelse </h1>
+          <h1>Ørn forlag | Ordrebekreftelse </h1>
           <p>Takk for din ordre hos ornforlag.no!<br> Den ble betalt med Vipps Hurtigkasse og bøkene(boka) blir pakket og sendt til adressen oppgitt av deg i Vipps appen.</p>
           <p>
            Ditt Ordre Nr.: <h2><strong>${order.id}</strong></h2>
@@ -38,7 +38,7 @@ export default async function sendOrderConfirmation(orderId) {
             Fornavn: <strong>${order.customer.firstName}</strong><br />
             Etternavn: <strong>${order.customer.lastName}</strong><br />
             Epost: <strong>${email}</strong>
-            
+                        
            </p>
           <p>
             Totalt u/frakt: <strong>${formatCurrency({
@@ -49,15 +49,15 @@ export default async function sendOrderConfirmation(orderId) {
         </mj-text>
         <mj-table>
           <tr style="border-bottom:1px solid #ecedee;text-align:left;">
-            <th style="padding: 0 15px 0 0;">Navn</th>
-            <th style="padding: 0 15px;">Antall</th>
-            <th style="padding: 0 0 0 15px;">Totalt</th>
+            <th style="padding: 0 10px 0 0;">Navn</th>
+            <th style="padding: 0 10px;">Stk</th>
+            <th style="padding: 0 0 0 10px;">SUM</th>
           </tr>
           ${order.cart.map(
             (item) => `<tr>
-              <td style="padding: 0 15px 0 0;">${item.name} (${item.sku})</td>
-              <td style="padding: 0 15px;">${item.quantity}</td>
-              <td style="padding: 0 0 0 15px;">${formatCurrency({
+              <td style="padding: 0 10px 0 0;">${item.name} (${item.sku})</td>
+              <td style="padding: 0 10px;">${item.quantity}</td>
+              <td style="padding: 0 0 0 10px;">${formatCurrency({
                 amount: item.price.net * item.quantity,
                 currency: item.price.currency
               })}</td>
@@ -93,7 +93,7 @@ Kontonr.: 9235.27.10220
       await sgMail.send({
         to: email,
         from: 'webmaster@ornforlag.no',
-        subject: 'Ordre kvitering fra ornforlag.no',
+        subject: 'Bekreftelse på bok kjøp fra ornforlag.no',
         html
       });
     }
