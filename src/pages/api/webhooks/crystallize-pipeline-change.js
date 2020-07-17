@@ -21,7 +21,8 @@ export default async (req, res) => {
   if (ornPipePipeline) {
     switch (ornPipePipeline.stage) {
       case 'ny-ordre':
-        actions.push('Gi lager avd beskjed at ny ordre har kommet ');
+        actions.push('Notify staff of new order');
+
         break;
       case 'pakking':
         actions.push(

@@ -10,9 +10,11 @@ import { H1, H3, Outer, responsive } from 'ui';
 
 const StyledOuter = styled(Outer)`
   --spacing: 2rem;
+
   ${responsive.smAndLess} {
     --spacing: 20px;
   }
+
   max-width: 800px;
   padding: 50px 0 !important;
 `;
@@ -22,18 +24,23 @@ const List = styled.ul`
   margin: 0;
   padding: 0;
   list-style: none;
+
   > li {
     margin: 75px 0;
     padding: 0;
+
     ${H3} {
       &::first-letter {
         text-transform: uppercase;
       }
+
       margin: 0 var(--spacing) 15px;
+
       small {
         display: inline-block;
         font-size: 0.6em;
         margin-left: 15px;
+
         &:before {
           content: '(';
         }
@@ -42,6 +49,7 @@ const List = styled.ul`
         }
       }
     }
+
     pre {
       padding: var(--spacing);
       font-size: 0.8em;
