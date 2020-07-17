@@ -1,7 +1,7 @@
 // Screen sizes
 export const screen = new Proxy(
   {
-    xs: 500,
+    xs: 475,
     sm: 768,
     md: 1024,
     lg: 1600,
@@ -25,7 +25,7 @@ export const screen = new Proxy(
     },
     get lgMin() {
       return this.lg;
-    },
+    }
   },
   {
     get: function (obj, prop) {
@@ -38,6 +38,6 @@ export const screen = new Proxy(
       }
 
       return 1;
-    },
+    }
   }
 );

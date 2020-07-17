@@ -74,7 +74,7 @@ export const ErrorMessage = styled.p`
   margin-top: 1rem;
 `;
 
-export const StripeWrapper = styled.div`
+export const VippsWrapper = styled.div`
   width: 100%;
   padding-bottom: 1rem;
 `;
