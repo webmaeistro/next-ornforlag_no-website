@@ -8,10 +8,7 @@ const channels = new Pusher({
 });
 
 export default (req, res) => {
-  console.log('webhook received', new Date());
-  console.log(JSON.stringify(req.body, null, 3));
   channels.trigger('webhooks', 'incoming-webhook', JSON.stringify(req.body));
 
-  res.send('received');
   res.send('webhook received');
 };
