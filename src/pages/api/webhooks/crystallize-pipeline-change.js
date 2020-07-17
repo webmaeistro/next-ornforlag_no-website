@@ -17,9 +17,9 @@ export default async (req, res) => {
 
   const actions = [];
 
-  const inStorePipeline = inStages.find((p) => p.pipeline === 'ornpipe');
-  if (inStorePipeline) {
-    switch (inStorePipeline.stage) {
+  const ornPipePipeline = inStages.find((p) => p.pipeline === 'ornpipe');
+  if (ornPipePipeline) {
+    switch (ornPipePipeline.stage) {
       case 'ny-ordre':
         actions.push('Gi lager avd beskjed at ny ordre har kommet ');
         break;
