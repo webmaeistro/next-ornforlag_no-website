@@ -1,6 +1,6 @@
-import { getClient } from 'lib-api/payment-providers/vipps';
+//import { getClient } from 'lib-api/payment-providers/vipps';
 import { updateCrystallizeOrder } from 'lib-api/crystallize/order';
-
+import { getClient } from '@crystallize/node-vipps';
 export default async (req, res) => {
   const {
     orders: { get: order }
@@ -72,9 +72,8 @@ export default async (req, res) => {
             status: 'REFUNDED'
           })
         });
-        break;
     }
   }
 
-  res.send('200 received');
+  res.send('received');
 };
