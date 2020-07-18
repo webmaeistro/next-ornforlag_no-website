@@ -28,14 +28,15 @@ export default {
       relatedProduct: 'Relatert produkt',
       relatedProduct_plural: 'Relaterte produkter',
       addToBasket: 'Legg i hurtigkurv',
-      buy: 'KJØP'
+      buy: 'Ta meg ditt'
     },
     basket: {
       title: 'Hurtigkurv',
       loading: 'Vennligst vent. Henter din hurtigkurv...',
       removeItem: 'Fjern {{name}} fra hurtigkurven',
       empty: 'Hurtigkurven din er tom',
-      empty_inCheckout: 'Du har ikke lagt til noe i hurtigkurven enda.',
+      empty_inCheckout:
+        'Heisann, så rart å være i kassa uten noen å kjøpe? Prøv igjen, kjøp en bok davel. ;)',
       remainingUntilFreeShipping:
         'Kjøp for {{amount, currency}} ekstra for å oppnå gratis frakt',
       totalPrice: 'Totalt',
@@ -43,7 +44,7 @@ export default {
       totalPriceAfterDiscount: 'Totalt etter fratrekk',
       shippingPrice: 'Frakt',
       vat: 'Mva.',
-      totalToPay: 'Til Vipps betaling',
+      totalToPay: 'Totalen i Vipps',
       goToCheckout: 'Gå til Vipps betaling'
     },
     checkout: {
@@ -54,7 +55,7 @@ export default {
       paymentProviderNotConfigured:
         'Betalingstjenesten {{name}} er ikke konfigurert',
       paymentProviderLogoAlt: 'Logo for {{name}}',
-      loadingPaymentGateway: 'Laster betalingstjenesten...',
+      loadingPaymentGateway: 'Ørn brer sine vinger mot Vipps...',
       loadingPaymentGatewayFailed:
         'Oisann. Betalingstjenesten {{name}} kan ikke lastes akkurat nå',
       confirmation: {
@@ -65,8 +66,8 @@ export default {
     },
     order: {
       total: 'Totalt',
-      item: 'Vare',
-      item_plural: 'Varer'
+      item: 'Bok',
+      item_plural: 'Bøker'
     },
     layout: {
       menu: 'Meny',

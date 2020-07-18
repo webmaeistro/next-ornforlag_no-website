@@ -17,19 +17,19 @@ export default async (req, res) => {
 
   const actions = [];
 
-  const ornPipePipeline = inStages.find((p) => p.pipeline === 'ornpipe');
-  if (ornPipePipeline) {
-    switch (ornPipePipeline.stage) {
-      case 'ny-ordre':
+  const ornpipePipeline = inStages.find((p) => p.pipeline === 'ornpipe');
+  if (ornpipePipeline) {
+    switch (ornpipePipeline.stageId) {
+      case '5f0db74974c003001cafd2f5':
         actions.push('Notify staff of new order');
 
         break;
-      case 'pakking':
+      case '5f0db74974c003001cafd2f6':
         actions.push(
           'Inform the user: Boken blir pakket og gjort klar for sending '
         );
         break;
-      case 'postet':
+      case '5f0db74974c003001cafd2f7':
         // Vipps capture
         await getClient().capture({
           orderId: order.id,
@@ -52,7 +52,7 @@ export default async (req, res) => {
         });
 
         break;
-      case 'refund':
+      case '5f0db74974c003001cafd2f8':
         await getClient().refund({
           orderId: order.id,
           body: {
