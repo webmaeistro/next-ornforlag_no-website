@@ -103,36 +103,25 @@ export default function VippsOrderNormalizer({ vippsOrderId, vippsData }) {
     return {
       customer: {
         firstName: personalDetails.firstName,
-        lastName: personalDetails.lastName,
-        addresses: [
+        lastName: personalDetails.lastName
+      },
+      cart: orderItemsArray,
+
+      total: {
+        gross: totalGrossCartAmount,
+        net: totalNetCartAmount,
+        currency: currency,
+        discounts: [
           {
-            type: 'delivery',
-            street: shippingDetails.address.addressLine1,
-            postalCode: shippingDetails.address.postCode,
-            city: shippingDetails.address.city,
-            country: shippingDetails.address.country,
-            phone: userDetails.mobileNumber,
-            email: userDetails.email
+            percent: 0
           }
         ],
-        cart: orderItemsArray,
-
-        total: {
-          gross: totalGrossCartAmount,
-          net: totalNetCartAmount,
-          currency: currency,
-          discounts: [
-            {
-              percent: 0
-            }
-          ],
-          tax: {
-            name: lineItems[0].tax_group.name,
-            percent: lineItems[0].tax_group.percent
-          }
-        },
-        additionalInformation: JSON.stringify({ status: 'initiated' })
-      }
+        tax: {
+          name: lineItems[0].tax_group.name,
+          percent: lineItems[0].tax_group.percent
+        }
+      },
+      additionalInformation: JSON.stringify({ status: 'initiated' })
     };
   }
 }

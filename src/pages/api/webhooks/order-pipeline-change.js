@@ -76,5 +76,5 @@ export default async (req, res) => {
     }
   }
 
-  res.send('received');
+  res.send('200 received');
 };

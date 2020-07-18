@@ -25,7 +25,7 @@ export default function Footer() {
         <h5>{t('layout.menu')}</h5>
         {mainNavigation.map((category) => (
           <li key={category.path}>
-            <Link as={category.path} href="/utgivelser/[...catalogue]">
+            <Link as={category.path} href="/[...catalogue]">
               <a>{category.name}</a>
             </Link>
           </li>

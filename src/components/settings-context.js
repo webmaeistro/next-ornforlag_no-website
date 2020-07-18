@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 
 // A simple context for handling the current settings
 export const SettingsContext = React.createContext({
-  currency: 'eur',
+  currency: 'NOK',
   mainNavigation: []
 });
 
