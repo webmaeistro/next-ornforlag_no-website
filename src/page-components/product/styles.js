@@ -109,7 +109,7 @@ export const Info = styled.div`
   }
 `;
 export const Name = styled(H1)`
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Vipps Display', sans-serif;
   font-size: 2rem;
   font-weight: 900;
   text-transform: uppercase;
@@ -140,7 +140,7 @@ export const ProductFooter = styled.div`
 
 export const Price = styled.div`
   text-align: center;
-  color: var(--color-text-sub);
+  color: var(--color-vipps-purple);
   font-size: 30px;
   margin: 20px;
   margin-left: 0;

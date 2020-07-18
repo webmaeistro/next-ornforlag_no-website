@@ -17,7 +17,7 @@ export default function Footer() {
       <Link href="/">
         <a>
           <Logo>
-            <img src="/static/shop-logo.svg" alt="" />
+            <img src="/static/shop-logo.svg" alt="Ørn forlag logo" />
           </Logo>
         </a>
       </Link>
@@ -25,7 +25,7 @@ export default function Footer() {
         <h5>{t('layout.menu')}</h5>
         {mainNavigation.map((category) => (
           <li key={category.path}>
-            <Link as={category.path} href="/[...catalogue]">
+            <Link as={category.path} href="/utgivelser/[...catalogue]">
               <a>{category.name}</a>
             </Link>
           </li>
