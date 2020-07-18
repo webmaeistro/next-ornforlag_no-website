@@ -9,7 +9,7 @@ export default `
           currency
         }
         payment {
-          ... on VippsPayment {
+          ... on StripePayment {
             paymentMethod
           }
           ... on CustomPayment {
@@ -37,6 +37,11 @@ export default `
           addresses {
             type
             email
+            phone
+            street
+            postalCode
+            city
+            country
           }
         }
       }
