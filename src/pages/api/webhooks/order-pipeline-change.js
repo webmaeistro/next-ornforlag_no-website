@@ -8,7 +8,7 @@ export default async (req, res) => {
 
   const inStages = order.pipelines.map(({ pipeline, stageId }) => ({
     pipeline: pipeline.name,
-    stage: pipeline.stages?.find((s) => s.id === stageId)?.name
+    stage: pipeline.stages?.find(s => s.id === stageId)?.name
   }));
 
   console.log('Order pipeline update for', order.id);
@@ -17,12 +17,16 @@ export default async (req, res) => {
 
   const actions = [];
 
-  const ornpipePipeline = inStages.find((p) => p.pipeline === 'ornpipe');
+  const ornpipePipeline = inStages.find(p => p.pipeline === 'ornpipe');
   if (ornpipePipeline) {
+    /*eslint use-default:2 */
     switch (ornpipePipeline.stage) {
       case 'ny-ordre':
         actions.push('Notify staff of new order');
 
+        break;
+      default:
+        console.log('error');
         break;
       case 'pakking':
         actions.push(
@@ -52,6 +56,7 @@ export default async (req, res) => {
         });
 
         break;
+
       case 'refund':
         await getClient().refund({
           orderId: order.id,
