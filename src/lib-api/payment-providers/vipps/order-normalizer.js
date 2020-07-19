@@ -72,7 +72,7 @@ export default function VippsOrderNormalizer({ vippsOrderId, vippsData }) {
       })
     };
   } else {
-    const orderItemsArray = lineItems.map((lineItem) => {
+    const orderItemsArray = lineItems.map(lineItem => {
       totalGrossCartAmount += lineItem.gross;
       totalNetCartAmount += lineItem.net;
       return {

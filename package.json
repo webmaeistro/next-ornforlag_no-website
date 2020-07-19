@@ -4,6 +4,7 @@
   "license": "MIT",
   "private": true,
   "author": "Martin Andersen <marander@protonmail.com> (@webmaeistro) , haakon and stavros",
+  "description": "node, react, ecom, vipps hurtigkasse, graphql, serverless connecting to crystallize.com for content source and for orders management via graphql mutations",
   "engines": {
     "node": ">=10.10"
   },
@@ -36,12 +37,13 @@
   "dependencies": {
     "@crystallize/content-transformer": "^5.2.1",
     "@crystallize/grid-renderer": "^2.0.1",
-    "@crystallize/node-vipps": "^0.1.0",
+    "@crystallize/node-vipps": "^0.1.4",
     "@crystallize/react-image": "^3.1.0",
     "@crystallize/react-layout": "^3.2.0",
     "@nerdenough/mjml-ncc-bundle": "^1.1.1",
     "@pusher/push-notifications-web": "0.12.0",
     "@sendgrid/mail": "^7.2.1",
+    "@vercel/node": "1.7.2",
     "dashjs": "^3.1.1",
     "framer-motion": "^1.11.1",
     "i18next": "19.6.2",
@@ -78,6 +80,10 @@
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5"
   },
-  "keywords": [],
-  "description": "node, react, ecom, vipps hurtigkasse, graphql, serverless connecting to crystallize.com for content source and for orders management via graphql mutations"
+  "keywords": [
+    "vipps",
+    "react",
+    "nextjs",
+    "ornforlag"
+  ]
 }
