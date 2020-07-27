@@ -32,7 +32,7 @@ export default async (req, res) => {
           'Inform the user: Boken blir pakket og gjort klar for sending '
         );
         break;
-      case 'postet':
+      case 'undefined':
         // Vipps capture
         await getClient().capture({
           orderId: order.id,
