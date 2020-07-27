@@ -1,6 +1,6 @@
-//import { getClient } from 'lib-api/payment-providers/vipps';
+import { getClient } from 'lib-api/payment-providers/vipps';
 import { updateCrystallizeOrder } from 'lib-api/crystallize/order';
-import { getClient } from '@crystallize/node-vipps';
+
 export default async (req, res) => {
   const {
     orders: { get: order }
@@ -23,6 +23,9 @@ export default async (req, res) => {
       case 'ny-ordre':
         actions.push('Notify staff of new order');
 
+        break;
+      default:
+        console.log('error');
         break;
       case 'pakking':
         actions.push(
@@ -52,6 +55,7 @@ export default async (req, res) => {
         });
 
         break;
+
       case 'refund':
         await getClient().refund({
           orderId: order.id,
