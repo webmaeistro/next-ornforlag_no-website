@@ -39,7 +39,7 @@ export default async (req, res) => {
             },
             transaction: {
               amount: order.total.gross * 100,
-              transactionText: 'ornforlag.no netthandel transaksjon'
+              transactionText: 'ornforlag.no, netthandel transaksjon'
             }
           }
         });
