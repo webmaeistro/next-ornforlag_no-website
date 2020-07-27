@@ -8,8 +8,7 @@ function getTotalAmount(acc, lineItem) {
   return acc + lineItem.net * lineItem.quantity * 100;
 }
 
-function orderToVippsBody({ basket, orderId, host }) {
-  //                                              ^, multilingualUrlPrefix
+function orderToVippsBody({ basket, orderId, host, multilingualUrlPrefix }) {
   const totalCartAmount = basket.lineItems.reduce(getTotalAmount, 0);
   const shippingCost = 99;
 
@@ -18,7 +17,7 @@ function orderToVippsBody({ basket, orderId, host }) {
       merchantSerialNumber: process.env.VIPPS_MERCHANT_SERIAL,
       callbackPrefix: `${host}/api/payment-providers/vipps/order-update`,
       shippingDetailsPrefix: `${host}/api/payment-providers/vipps/order-update`,
-      fallBack: `${host}/api/payment-providers/vipps/fallback/${orderId}`,
+      fallBack: `${host}/api/payment-providers/vipps/fallback/${orderId}?multilingualUrlPrefix=${multilingualUrlPrefix}`,
       consentRemovalPrefix: `${host}/api/payment-providers/vipps/constent-removal`,
       paymentType: 'eComm Express Payment',
       isApp: false,
