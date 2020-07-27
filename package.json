@@ -1,9 +1,10 @@
 {
   "name": "next-ornforlag_no-website",
-  "version": "1.1.0",
+  "version": "1.6.0",
   "license": "MIT",
   "private": true,
   "author": "Martin Andersen <marander@protonmail.com> (@webmaeistro) , haakon and stavros",
+  "description": "node, react, ecom, vipps hurtigkasse, graphql, serverless connecting to crystallize.com for content source and for orders management via graphql mutations",
   "engines": {
     "node": ">=10.10"
   },

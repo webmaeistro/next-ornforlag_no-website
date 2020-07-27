@@ -1,7 +1,6 @@
 import VippsClient from '@crystallize/node-vipps';
 
 export { default as orderNormalizer } from './order-normalizer';
-
 let client;
 
 export const getClient = () => {
