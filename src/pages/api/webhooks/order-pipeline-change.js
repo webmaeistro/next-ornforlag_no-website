@@ -24,9 +24,7 @@ export default async (req, res) => {
         actions.push('Notify staff of new order');
 
         break;
-      default:
-        console.log('error');
-        break;
+
       case 'pakking':
         actions.push(
           'Inform the user: Boken blir pakket og gjort klar for sending '
@@ -41,8 +39,9 @@ export default async (req, res) => {
               merchantSerialNumber: process.env.VIPPS_MERCHANT_SERIAL
             },
             transaction: {
-              amount: order.total.gross * 100,
-              transactionText: 'ornforlag.no, netthandel transaksjon'
+              amount: order.total.gross * 100 + 99,
+              transactionText:
+                'ornforlag.no, netthandel transaksjon: capturePayment'
             }
           }
         });
@@ -64,7 +63,7 @@ export default async (req, res) => {
               merchantSerialNumber: process.env.VIPPS_MERCHANT_SERIAL
             },
             transaction: {
-              amount: order.total.gross * 100,
+              amount: order.total.gross * 100 + 99,
               transactionText: 'ornforlag.no netthandel transakson: Refund'
             }
           }
