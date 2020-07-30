@@ -39,7 +39,7 @@ export default async (req, res) => {
               merchantSerialNumber: process.env.VIPPS_MERCHANT_SERIAL
             },
             transaction: {
-              amount: order.total.gross * 100 + 99,
+              amount: (99 + order.total.gross) * 100,
               transactionText:
                 'ornforlag.no, netthandel transaksjon: capturePayment'
             }
@@ -63,7 +63,7 @@ export default async (req, res) => {
               merchantSerialNumber: process.env.VIPPS_MERCHANT_SERIAL
             },
             transaction: {
-              amount: order.total.gross * 100 + 99,
+              amount: (99 + order.total.gross) * 100,
               transactionText: 'ornforlag.no netthandel transakson: Refund'
             }
           }
