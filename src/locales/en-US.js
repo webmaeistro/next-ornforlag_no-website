@@ -70,8 +70,8 @@ export default {
       item_plural: 'Bøker'
     },
     layout: {
-      menu: 'Meny',
-      ecomBy: 'Nettside av',
+      menu: 'Menu',
+      ecomBy: 'Made by',
       loadingVideo: 'Laster video'
     }
   }

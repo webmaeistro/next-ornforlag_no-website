@@ -131,6 +131,10 @@ export default function Payment({ items, currency }) {
     <Inner>
       <Form noValidate>
         <Row>
+          1. Vipps sin landingsside Hvis betalingen ble startet på en PC sendes
+          kunden til Vipps sin landingsside. Der bekrefter de telefonnummeret
+          sitt, og får beskjed om å logge inn i Vipps. Hvis betalingen ble
+          startet på en mobil, vil appen automatisk bytte til Vipps.
           {/*
           <InputGroup>
             <Label htmlFor="firstname">{t('customer.firstName')}</Label>
