@@ -70,7 +70,7 @@ export async function getStaticProps({ params }) {
         ...data,
         type
       },
-      unstable_revalidate: 1
+      revalidate: 1
     };
   } catch (error) {
     console.error(error);
@@ -79,7 +79,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {},
-    unstable_revalidate: 1
+    revalidate: 1
   };
 }
 
