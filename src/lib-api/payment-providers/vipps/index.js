@@ -9,7 +9,7 @@ export const getClient = () => {
   }
 
   client = new VippsClient({
-    testDrive: true,
+    testDrive: false,
     id: process.env.VIPPS_CLIENT_ID,
     secret: process.env.VIPPS_CLIENT_SECRET,
     subscriptionId: process.env.VIPPS_SUB_KEY
