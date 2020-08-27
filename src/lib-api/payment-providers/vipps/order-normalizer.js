@@ -33,8 +33,10 @@ export default function VippsOrderNormalizer({ vippsOrderId, vippsData }) {
     shippingDetails,
     userDetails
   } = vippsData;
-  let totalGrossCartAmount = 0;
-  let totalNetCartAmount = 0;
+  const total = {
+    net: 0,
+    gross: 0
+  };
 
   if (vippsOrderId) {
     return {
@@ -73,8 +75,9 @@ export default function VippsOrderNormalizer({ vippsOrderId, vippsData }) {
     };
   } else {
     const orderItemsArray = lineItems.map((lineItem) => {
-      totalGrossCartAmount += lineItem.gross;
-      totalNetCartAmount += lineItem.net;
+      total.gross += lineItem.gross * lineItem.quantity;
+      total.net += lineItem.net * lineItem.quantity;
+
       return {
         name: lineItem.name,
         sku: lineItem.sku,
@@ -86,7 +89,7 @@ export default function VippsOrderNormalizer({ vippsOrderId, vippsData }) {
         price: {
           gross: lineItem.gross,
           net: lineItem.net,
-          currency: currency,
+          currency,
           discounts: [
             {
               percent: 0
@@ -108,9 +111,9 @@ export default function VippsOrderNormalizer({ vippsOrderId, vippsData }) {
       cart: orderItemsArray,
 
       total: {
-        gross: totalGrossCartAmount,
-        net: totalNetCartAmount,
-        currency: currency,
+        gross: total.gross,
+        net: total.net,
+        currency,
         discounts: [
           {
             percent: 0
