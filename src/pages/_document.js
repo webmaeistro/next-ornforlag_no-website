@@ -37,10 +37,6 @@ export default class MyDocument extends Document {
     return (
       <html lang={this.props.locale.appLanguage}>
         <Head>
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, minimal-ui"
-          />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <link
             href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&family=Roboto:wght@300;400;700&display=swap"
@@ -56,6 +52,10 @@ export default class MyDocument extends Document {
           {this.props.styleTags}
         </Head>
         <body>
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, minimal-ui"
+          />
           <Main />
           <NextScript />
         </body>

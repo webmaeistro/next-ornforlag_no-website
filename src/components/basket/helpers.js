@@ -21,7 +21,7 @@ export function getSupportedOptionsFromProps(props) {
 export const generateUniqueId = (function iife() {
   let idIncremenet = 0;
 
-  return name => `crystallize-${name}-${idIncremenet++}`;
+  return (name) => `crystallize-${name}-${idIncremenet++}`;
 })();
 
 export function calculateTotals({ items, discount, options, shipping }) {
@@ -71,6 +71,7 @@ export function calculateTotals({ items, discount, options, shipping }) {
     totalToPay,
     totalQuantity,
     freeShipping,
+    shippingCost,
     remainingUntilFreeShippingApplies,
     items
   };

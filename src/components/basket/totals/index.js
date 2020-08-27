@@ -50,11 +50,13 @@ export const Totals = () => {
                   {t('common.price', { value: shipping.unit_price })}
                 </StrikeThrough>
               )}{' '}
-              {t('common.price', { value: 99 })}
+              {t('common.price', { value: 0 })}
             </span>
           ) : (
             <span>
-              {t('common.price', { value: shipping ? shipping.unit_price : 0 })}
+              {t('common.price', {
+                value: shipping ? shipping.unit_price : 99
+              })}
             </span>
           )}
         </Row>
@@ -65,7 +67,7 @@ export const Totals = () => {
         </Row>
         <Row modifier="to-pay">
           <span>{t('basket.totalToPay')}:</span>
-          <span>{t('common.price', { value: totalToPay })}</span>
+          <span>{t('common.price', { value: totalToPay + 99 })}</span>
         </Row>
       </Rows>
     </Outer>

@@ -10,7 +10,7 @@ import appConfig from 'lib/app-config';
 import { useT } from 'lib/i18n';
 
 import {
-  Form,
+  //Form,
   //Input,
   //InputGroup,
   //Label,
@@ -129,13 +129,13 @@ export default function Payment({ items, currency }) {
 
   return (
     <Inner>
-      <Form noValidate>
-        <Row>
-          1. Vipps sin landingsside Hvis betalingen ble startet på en PC sendes
-          kunden til Vipps sin landingsside. Der bekrefter de telefonnummeret
-          sitt, og får beskjed om å logge inn i Vipps. Hvis betalingen ble
-          startet på en mobil, vil appen automatisk bytte til Vipps.
-          {/*
+      {/*  <Form noValidate> */}
+      <Row>
+        1. Vipps sin landingsside Hvis betalingen ble startet på en PC sendes
+        kunden til Vipps sin landingsside. Der bekrefter de telefonnummeret
+        sitt, og får beskjed om å logge inn i Vipps. Hvis betalingen ble startet
+        på en mobil, vil appen automatisk bytte til Vipps.
+        {/*
           <InputGroup>
             <Label htmlFor="firstname">{t('customer.firstName')}</Label>
             <Input
@@ -171,51 +171,50 @@ export default function Payment({ items, currency }) {
             />
           </InputGroup>
            */}
-        </Row>
+      </Row>
 
-        <SectionHeader>{t('checkout.choosePaymentMethod')}</SectionHeader>
-        {appConfig.paymentProviders.length === 0 ? (
-          <i>{t('checkout.noPaymentProvidersConfigured')}</i>
-        ) : (
-          <PaymentProviders>
-            <PaymentSelector>
-              {appConfig.paymentProviders.map((paymentProviderFromConfig) => {
-                const paymentProvider = paymentProviders.find(
-                  (p) => p.name === paymentProviderFromConfig
-                );
-                if (!paymentProvider) {
-                  return (
-                    <small>
-                      {t('checkout.paymentProviderNotConfigured', {
-                        name: paymentProviderFromConfig
-                      })}
-                    </small>
-                  );
-                }
-
+      <SectionHeader>{t('checkout.choosePaymentMethod')}</SectionHeader>
+      {appConfig.paymentProviders.length === 0 ? (
+        <i>{t('checkout.noPaymentProvidersConfigured')}</i>
+      ) : (
+        <PaymentProviders>
+          <PaymentSelector>
+            {appConfig.paymentProviders.map((paymentProviderFromConfig) => {
+              const paymentProvider = paymentProviders.find(
+                (p) => p.name === paymentProviderFromConfig
+              );
+              if (!paymentProvider) {
                 return (
-                  <PaymentButton
-                    key={paymentProvider.name}
-                    color={paymentProvider.color}
-                    type="button"
-                    active={paymentProvider === paymentProvider.name}
-                    onClick={() => setPaymentProvider(paymentProvider.name)}
-                  >
-                    <img
-                      src={paymentProvider.logo}
-                      alt={t('checkout.paymentProviderLogoAlt', {
-                        name: paymentProvider.name
-                      })}
-                    />
-                  </PaymentButton>
+                  <small>
+                    {t('checkout.paymentProviderNotConfigured', {
+                      name: paymentProviderFromConfig
+                    })}
+                  </small>
                 );
-              })}
-            </PaymentSelector>
+              }
 
-            {paymentProviders.find((p) => p.name === paymentProvider)?.render()}
-          </PaymentProviders>
-        )}
-      </Form>
+              return (
+                <PaymentButton
+                  key={paymentProvider.name}
+                  color={paymentProvider.color}
+                  type="button"
+                  active={paymentProvider === paymentProvider.name}
+                  onClick={() => setPaymentProvider(paymentProvider.name)}
+                >
+                  <img
+                    src={paymentProvider.logo}
+                    alt={t('checkout.paymentProviderLogoAlt', {
+                      name: paymentProvider.name
+                    })}
+                  />
+                </PaymentButton>
+              );
+            })}
+          </PaymentSelector>
+
+          {paymentProviders.find((p) => p.name === paymentProvider)?.render()}
+        </PaymentProviders>
+      )}
     </Inner>
   );
 }
