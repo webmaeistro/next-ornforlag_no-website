@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { useT } from 'lib/i18n';
 import { CurrencyValue } from 'components/currency-value';
 import { responsive, H3 } from 'ui';
-import { BasketQuantity } from 'components/layout/header/styles';
 
 const Outer = styled.div`
   width: 300px;
@@ -45,7 +44,7 @@ const BillingDetails = ({ order }) => {
         <p>
           {t('order.total')}:{' '}
           <strong>
-            <CurrencyValue value={order.total.net * BasketQuantity} />
+            <CurrencyValue value={order.total.net * order.ItemQuantity} />
           </strong>
         </p>
       </Inner>
