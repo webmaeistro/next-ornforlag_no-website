@@ -134,7 +134,7 @@ export default function Payment({ items, currency }) {
         Hvis betalingen ble startet på en PC sendes du til Vipps sin
         landingsside. Der bekrefter du telefonnummeret ditt, og får beskjed om å
         logge inn i Vipps. Hvis betalingen ble startet på en mobil, vil du bli
-        automatisk bytte til Vipps appen din.
+        automatisk byttet til Vipps appen din.
         {/*
           <InputGroup>
             <Label htmlFor="firstname">{t('customer.firstName')}</Label>
