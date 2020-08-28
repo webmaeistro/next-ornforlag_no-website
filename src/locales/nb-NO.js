@@ -36,7 +36,7 @@ export default {
       removeItem: 'Fjern {{name}} fra hurtigkurven',
       empty: 'Hurtigkurven din er tom',
       empty_inCheckout:
-        'Heisann, så rart å være i kassa uten noen å kjøpe? Prøv igjen, kjøp en bok davel. ;)',
+        'Her kommer alle bøkene du har valgt å putte i hurtigkurven. Den er foreløpig tom. Gå tilbake og prøv igjen!',
       remainingUntilFreeShipping:
         'Kjøp for {{amount, currency}} ekstra for å oppnå gratis frakt',
       totalPrice: 'Totalt',
