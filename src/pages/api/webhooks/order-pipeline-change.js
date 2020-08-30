@@ -56,7 +56,7 @@ export default async (req, res) => {
         break;
 
       case 'refund':
-        await getClient().refund({
+        await getClient().canceled({
           orderId: order.id,
           body: {
             merchantInfo: {
@@ -64,7 +64,7 @@ export default async (req, res) => {
             },
             transaction: {
               amount: (99 + order.total.gross) * 100,
-              transactionText: 'ornforlag.no netthandel transakson: Refund'
+              transactionText: 'ornforlag.no netthandel transakson: canceld'
             }
           }
         });
@@ -72,7 +72,7 @@ export default async (req, res) => {
         await updateCrystallizeOrder({
           id: order.id,
           additionalInformation: JSON.stringify({
-            status: 'REFUNDED'
+            status: 'CANCELD'
           })
         });
     }
