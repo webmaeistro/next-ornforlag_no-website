@@ -33,6 +33,7 @@ export default function VippsOrderNormalizer({ vippsOrderId, vippsData }) {
     shippingDetails,
     userDetails
   } = vippsData;
+
   const total = {
     net: 0,
     gross: 0
