@@ -1,6 +1,7 @@
 import { getClient } from 'lib-api/payment-providers/vipps';
 import { updateCrystallizeOrder } from 'lib-api/crystallize/order';
 
+// eslint-disable-next-line no-unused-vars
 export default async (req, res) => {
   const {
     orders: { get: order }
@@ -41,7 +42,7 @@ export default async (req, res) => {
             transaction: {
               amount: (99 + order.total.gross) * 100,
               transactionText:
-                'ornforlag.no, netthandel transaksjon: capturePayment'
+                'Ørn forlag | ornforlag.no Vipps transaksjon: Betaling Utført'
             }
           }
         });
@@ -56,6 +57,30 @@ export default async (req, res) => {
         break;
 
       case 'refund':
+        await getClient().refund({
+          orderId: order.id,
+          body: {
+            merchantInfo: {
+              merchantSerialNumber: process.env.VIPPS_MERCHANT_SERIAL
+            },
+            transaction: {
+              amount: (99 + order.total.gross) * 100,
+              transactionText:
+                'Ørn forlag | ornforlag.no Vipps transaksjon: Refundert'
+            }
+          }
+        });
+
+        await updateCrystallizeOrder({
+          id: order.id,
+          additionalInformation: JSON.stringify({
+            status: 'REFUNDED'
+          })
+        });
+
+        break;
+
+      case 'Cancelled':
         await getClient().canceled({
           orderId: order.id,
           body: {
@@ -64,7 +89,8 @@ export default async (req, res) => {
             },
             transaction: {
               amount: (99 + order.total.gross) * 100,
-              transactionText: 'ornforlag.no netthandel transakson: canceld'
+              transactionText:
+                'Ørn forlag | ornforlag.no Vipps transaksjon: Canceled'
             }
           }
         });
@@ -77,6 +103,4 @@ export default async (req, res) => {
         });
     }
   }
-
-  res.send('received');
 };
