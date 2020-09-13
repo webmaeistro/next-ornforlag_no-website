@@ -1,6 +1,6 @@
 export default `
   query getOrder($id: ID!){
-    orders {
+    order {
       get(id: $id) {
         id
         total {

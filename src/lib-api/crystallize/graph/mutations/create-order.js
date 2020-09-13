@@ -5,7 +5,7 @@ export default `
     $payment: [PaymentInput!]
     $total: PriceInput
   ) {
-    orders {
+    order {
       create(
         input: {
           customer: $customer

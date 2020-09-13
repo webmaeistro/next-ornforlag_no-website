@@ -4,7 +4,7 @@ import { updateCrystallizeOrder } from 'lib-api/crystallize/order';
 // eslint-disable-next-line no-unused-vars
 export default async (req, res) => {
   const {
-    orders: { get: order }
+    order: { get: order }
   } = req.body;
 
   const inStages = order.pipelines.map(({ pipeline, stageId }) => ({

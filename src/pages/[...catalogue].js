@@ -109,8 +109,9 @@ export async function getStaticPaths() {
       const allCatalogueItems = await simplyFetchFromGraph({
         query: `
           query GET_ALL_CATALOGUE_ITEMS($language: String!) {
-            catalogue(language: $language, path: "/") {
-              path
+            catalogue {
+              get(language: $language, path: "/") {
+              path 
               name
               children {
                 path
@@ -137,7 +138,7 @@ export async function getStaticPaths() {
                 }
               }
             }
-          }
+          }}
         `,
         variables: {
           language: locale.crystallizeCatalogueLanguage
