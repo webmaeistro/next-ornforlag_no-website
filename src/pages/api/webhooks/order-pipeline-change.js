@@ -1,7 +1,6 @@
 import { getClient } from 'lib-api/payment-providers/vipps';
 import { updateCrystallizeOrder } from 'lib-api/crystallize/order';
 
-// eslint-disable-next-line no-unused-vars
 export default async (req, res) => {
   const {
     order: { get: order }
@@ -103,7 +102,6 @@ export default async (req, res) => {
         });
     }
   }
-};
 
   res.send('received');
 };
