@@ -1,10 +1,12 @@
 {
-  "paymentProviders": ["vipps"],
+  "paymentProviders": [
+    "vipps"
+  ],
   "locales": [
     {
       "isDefault": true,
       "displayName": "Norwegian - NO",
-      "urlPrefix": "",
+      "urlPrefix": "ornforlag.no",
       "appLanguage": "nb-NO",
       "crystallizeCatalogueLanguage": "en",
       "defaultCurrency": "NOK"
