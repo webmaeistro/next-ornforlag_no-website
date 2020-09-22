@@ -6,7 +6,7 @@
     {
       "isDefault": true,
       "displayName": "Norwegian - NO",
-      "urlPrefix": "ornforlag.no",
+      "urlPrefix": "",
       "appLanguage": "nb-NO",
       "crystallizeCatalogueLanguage": "en",
       "defaultCurrency": "NOK"
