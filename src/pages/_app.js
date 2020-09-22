@@ -53,6 +53,7 @@ MyApp.getInitialProps = async function ({ ctx }) {
               path
             }
           }
+
           tenant(language: $language) {
             name
             defaults {
@@ -85,7 +86,7 @@ MyApp.getInitialProps = async function ({ ctx }) {
         locale: defaultLocale,
         tenant: {
           defaults: {
-            currency: 'Kr.'
+            currency: 'NOK'
           }
         }
       }
