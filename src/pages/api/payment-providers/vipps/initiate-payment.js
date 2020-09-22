@@ -1,23 +1,16 @@
-/* eslint-disable no-underscore-dangle */
+import { validatePaymentModel } from 'lib-api/util/checkout';
 import { orderNormalizer } from 'lib-api/payment-providers/vipps';
 import { createCrystallizeOrder } from 'lib-api/crystallize/order';
 import getHost from 'lib-api/util/get-host';
 import { getClient } from 'lib-api/payment-providers/vipps';
 
-function getTotalAmount(acc, lineItem) {
-  return acc + lineItem.net * lineItem.quantity * 100;
-}
-
-function orderToVippsBody({ basket, orderId, host, multilingualUrlPrefix }) {
-  const totalCartAmount = basket.lineItems.reduce(getTotalAmount, 0);
-  const shippingCost = 99;
-
+function orderToVippsBody({ paymentModel, orderId, host }) {
   return {
     merchantInfo: {
       merchantSerialNumber: process.env.VIPPS_MERCHANT_SERIAL,
       callbackPrefix: `${host}/api/payment-providers/vipps/order-update`,
-      shippingDetailsPrefix: `${host}/api/payment-providers/vipps/order-update`,
-      fallBack: `${host}/api/payment-providers/vipps/fallback/${orderId}?multilingualUrlPrefix=${multilingualUrlPrefix}`,
+      shippingDetailsPrefix: host,
+      fallBack: `${host}/api/payment-providers/vipps/fallback/${orderId}?multilingualUrlPrefix=${paymentModel.multilingualUrlPrefix}`,
       consentRemovalPrefix: `${host}/api/payment-providers/vipps/constent-removal`,
       paymentType: 'eComm Express Payment',
       isApp: false,
@@ -26,7 +19,7 @@ function orderToVippsBody({ basket, orderId, host, multilingualUrlPrefix }) {
         {
           isDefault: 'Y',
           priority: 0,
-          shippingCost,
+          shippingCost: 0,
           shippingMethod: 'Posten Servicepakke',
           shippingMethodId: 'posten-servicepakke'
         }
@@ -35,37 +28,30 @@ function orderToVippsBody({ basket, orderId, host, multilingualUrlPrefix }) {
     customerInfo: {},
     transaction: {
       orderId,
-      amount: totalCartAmount,
-      transactionText: 'ornforlag.no, netthandel transaksjon.'
+      amount: parseInt(paymentModel.total.gross * 100, 10),
+      transactionText: 'Crystallize NextJS boilerplate test transaction'
     }
   };
 }
 
 export default async (req, res) => {
   try {
-    const {
-      personalDetails,
-      lineItems,
-      currency,
-      multilingualUrlPrefix
-    } = req.body;
+    const { paymentModel } = req.body;
+
+    const validPaymentModel = await validatePaymentModel({ paymentModel });
     const host = getHost(req);
 
-    const validCrystallizeOrder = orderNormalizer({
-      vippsData: { lineItems, currency, personalDetails }
-    });
-
     const createCrystallizeOrderResponse = await createCrystallizeOrder(
-      validCrystallizeOrder
+      orderNormalizer({
+        paymentModel: validPaymentModel
+      })
     );
 
     const vippsResponse = await getClient().initiatePayment({
       order: orderToVippsBody({
-        basket: req.body,
-        personalDetails,
+        paymentModel: validPaymentModel,
         orderId: createCrystallizeOrderResponse.data.orders.create.id,
-        host,
-        multilingualUrlPrefix
+        host
       })
     });
 
