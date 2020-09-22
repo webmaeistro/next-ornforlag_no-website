@@ -5,10 +5,10 @@ import dynamic from 'next/dynamic';
 //import Head from 'next/head';
 import styled from 'styled-components';
 
-import appConfig from 'lib/app-config';
-//              ^ , { useLocale }
+import appConfig, { useLocale } from 'lib/app-config';
+//              ^
 import { useT } from 'lib/i18n';
-
+import { useBasket } from 'components/basket';
 import {
   //Form,
   //Input,
@@ -30,23 +30,14 @@ const Row = styled.div`
   margin-bottom: 10px;
 `;
 
-const Inner = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  border-radius: 0.2rem;
-`;
+const Inner = styled.div``;
 
-export default function Payment({ items, currency }) {
+export default function Payment() {
   const t = useT();
-  // const locale = useLocale();
-  // const router = useRouter();
-  const [paymentProvider, setPaymentProvider] = useState(null);
+  const locale = useLocale();
+  const { cart, metadata } = useBasket();
+  const [selectedPaymentProvider, setSelectedPaymentProvider] = useState(null);
   const [state] = useState({
-    //        ^ , setState
     firstName: '',
     lastName: '',
     email: ''
@@ -54,10 +45,22 @@ export default function Payment({ items, currency }) {
 
   const { firstName, lastName, email } = state;
 
-  const personalDetails = {
-    firstName,
-    lastName,
-    email
+  // Define the shared payment model for all payment providers
+  const paymentModel = {
+    multilingualUrlPrefix: locale.urlPrefix ? `/${locale.urlPrefix}` : '',
+    locale,
+    cart,
+    metadata,
+    customer: {
+      firstName,
+      lastName,
+      addresses: [
+        {
+          type: 'billing',
+          email
+        }
+      ]
+    }
   };
 
   const paymentProviders = [
@@ -115,9 +118,7 @@ export default function Payment({ items, currency }) {
       render: () => (
         <PaymentProvider>
           <VippsCheckout
-            personalDetails={personalDetails}
-            items={items}
-            currency={currency}
+            paymentModel={paymentModel}
             onSuccess={(url) => {
               if (url) window.location = url;
             }}
@@ -172,49 +173,54 @@ export default function Payment({ items, currency }) {
           </InputGroup>
            */}
       </Row>
-
-      <SectionHeader>{t('checkout.choosePaymentMethod')}</SectionHeader>
-      {appConfig.paymentProviders.length === 0 ? (
-        <i>{t('checkout.noPaymentProvidersConfigured')}</i>
-      ) : (
-        <PaymentProviders>
-          <PaymentSelector>
-            {appConfig.paymentProviders.map((paymentProviderFromConfig) => {
-              const paymentProvider = paymentProviders.find(
-                (p) => p.name === paymentProviderFromConfig
-              );
-              if (!paymentProvider) {
-                return (
-                  <small>
-                    {t('checkout.paymentProviderNotConfigured', {
-                      name: paymentProviderFromConfig
-                    })}
-                  </small>
+      <div>
+        <SectionHeader>{t('checkout.choosePaymentMethod')}</SectionHeader>
+        {appConfig.paymentProviders.length === 0 ? (
+          <i>{t('checkout.noPaymentProvidersConfigured')}</i>
+        ) : (
+          <PaymentProviders>
+            <PaymentSelector>
+              {appConfig.paymentProviders.map((paymentProviderFromConfig) => {
+                const paymentProvider = paymentProviders.find(
+                  (p) => p.name === paymentProviderFromConfig
                 );
-              }
+                if (!paymentProvider) {
+                  return (
+                    <small>
+                      {t('checkout.paymentProviderNotConfigured', {
+                        name: paymentProviderFromConfig
+                      })}
+                    </small>
+                  );
+                }
 
-              return (
-                <PaymentButton
-                  key={paymentProvider.name}
-                  color={paymentProvider.color}
-                  type="button"
-                  active={paymentProvider === paymentProvider.name}
-                  onClick={() => setPaymentProvider(paymentProvider.name)}
-                >
-                  <img
-                    src={paymentProvider.logo}
-                    alt={t('checkout.paymentProviderLogoAlt', {
-                      name: paymentProvider.name
-                    })}
-                  />
-                </PaymentButton>
-              );
-            })}
-          </PaymentSelector>
+                return (
+                  <PaymentButton
+                    key={paymentProvider.name}
+                    color={paymentProvider.color}
+                    type="button"
+                    selected={selectedPaymentProvider === paymentProvider.name}
+                    onClick={() =>
+                      setSelectedPaymentProvider(paymentProvider.name)
+                    }
+                  >
+                    <img
+                      src={paymentProvider.logo}
+                      alt={t('checkout.paymentProviderLogoAlt', {
+                        name: paymentProvider.name
+                      })}
+                    />
+                  </PaymentButton>
+                );
+              })}
+            </PaymentSelector>
 
-          {paymentProviders.find((p) => p.name === paymentProvider)?.render()}
-        </PaymentProviders>
-      )}
+            {paymentProviders
+              .find((p) => p.name === selectedPaymentProvider)
+              ?.render()}
+          </PaymentProviders>
+        )}
+      </div>
     </Inner>
   );
 }

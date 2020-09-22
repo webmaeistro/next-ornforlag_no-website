@@ -32,9 +32,8 @@ export default function GridItem({ data, gridCell }) {
     image = i;
     text = (
       <div>
-        <Title>{name}</Title>
         <Price>{t('common.price', { value: price })}</Price>
-        <br />
+        <Title>{name}</Title>
         <Button>{t('product.buy')}</Button>
       </div>
     );

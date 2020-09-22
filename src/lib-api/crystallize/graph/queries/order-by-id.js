@@ -1,12 +1,16 @@
 export default `
   query getOrder($id: ID!){
-    order {
+    orders {
       get(id: $id) {
         id
         total {
           net
           gross
           currency
+          tax {
+            name
+            percent
+          }
         }
         payment {
           ... on StripePayment {

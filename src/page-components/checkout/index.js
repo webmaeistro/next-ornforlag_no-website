@@ -1,9 +1,10 @@
 import React from 'react';
 import { CurrencyValue } from 'components/currency-value';
-import { useSettings } from 'components/settings-context';
+//import { useSettings } from 'components/settings-context';
 import { useBasket } from 'components/basket';
 import Layout from 'components/layout';
 import OrderItems from 'components/order-items';
+import { Totals } from 'components/basket/totals';
 import { useT } from 'lib/i18n';
 import { Row, Rows, StrikeThrough } from 'components/basket/totals/styles';
 import { H3 } from 'ui';
@@ -13,18 +14,17 @@ import { Outer, Inner, SectionHeader, Container } from './styles';
 
 function Checkout() {
   const basket = useBasket();
-  const settings = useSettings();
+  // const settings = useSettings();
   const t = useT();
 
-  if (!basket.state.ready) {
+  if (basket.status !== 'ready') {
     return <Outer center>{t('basket.loading')}</Outer>;
   }
 
-  const { items } = basket.state;
-  const { currency } = settings;
   const { totalToPay, totalVatAmount, shipping, freeShipping } = basket.state;
+  const { cart } = basket;
 
-  if (!items.length) {
+  if (!cart?.length) {
     return <Outer center>{t('basket.empty', { context: 'inCheckout' })}</Outer>;
   }
 
@@ -33,11 +33,14 @@ function Checkout() {
       <Inner>
         <Container>
           <SectionHeader>{t('checkout.title')}</SectionHeader>
-          <Payment items={items} currency={currency} />
+          <Payment />
         </Container>
         <Container>
           <SectionHeader>{t('basket.title')}</SectionHeader>
-          <OrderItems items={items} currency={currency} />
+          <OrderItems cart={cart} />
+          <div style={{ padding: '0 15px' }}>
+            <Totals />
+          </div>
           <Rows>
             <Row modifier="total-vat">
               <span>MVA.:</span>
