@@ -1,5 +1,21 @@
+  
 {
-  "redirects": [
+  "version": 2,
+  "env": {
+    "CRYSTALLIZE_SECRET_TOKEN_IDENTIFIER": "@crystallize-access-token-id",
+    "CRYSTALLIZE_SECRET_TOKEN": "@crystallize-access-token-secret",
+    "VIPPS_MERCHANT_SERIAL": "@vipps-merchant-serial",
+    "VIPPS_CLIENT_ID": "@vipps-client-id",
+    "VIPPS_CLIENT_SECRET": "@vipps-client-secret",
+    "VIPPS_SUB_KEY": "@vipps-sub-key",
+    "PUSHER_APP_ID": "@pusher-app-id",
+    "PUSHER_SECRET": "@pusher-secret"
+  },
+  "build": {
+    "env": {
+      "NEXT_PUBLIC_PUSHER_APP_KEY": "@pusher-app-key"
+    }
+    "redirects": [
     { "source": "/guidetilnorgesfugleliv*", "destination": "/utgivelser/guide-til-norges-fugleliv", "permanent": true  },
     { "source": "/utsira*", "destination": "/utgivelser/utsira", "permanent": true },
     { "source": "/SyEnBunad*", "destination": "/utgivelser/sy-en-bunad", "permanent": true }
@@ -7,4 +23,7 @@
     { "source": "/kikkogbruk*", "destination": "/utgivelser/kikk-og-bruk", "permanent": true }
     { "source": "/smaaviltguiden*", "destination": "/utgivelser/smaviltguiden", "permanent": true }
   ]
+  }
+}{
+  
 }
