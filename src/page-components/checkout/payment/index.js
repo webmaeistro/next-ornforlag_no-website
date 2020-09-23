@@ -1,8 +1,8 @@
 /* eslint-disable react/display-name */
 import React, { useState } from 'react';
-//import { useRouter } from 'next/router';
+
 import dynamic from 'next/dynamic';
-//import Head from 'next/head';
+
 import styled from 'styled-components';
 
 import appConfig, { useLocale } from 'lib/app-config';
@@ -35,6 +35,7 @@ const Inner = styled.div``;
 export default function Payment() {
   const t = useT();
   const locale = useLocale();
+
   const { cart, metadata } = useBasket();
   const [selectedPaymentProvider, setSelectedPaymentProvider] = useState(null);
   const [state] = useState({

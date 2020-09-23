@@ -23,7 +23,7 @@ function Loader({ children }) {
           <Spinner size="40" />
         </SpinnerWrapper>
         <LoadingTextWrapper>
-          {children || 'Flakser vilt her, øyeblikk...'}
+          {children || 'Vennligst vent...'}
         </LoadingTextWrapper>
       </div>
     </LoadingWrapper>
@@ -35,7 +35,8 @@ export default function Layout({
   title,
   description,
   simple,
-  loading
+  loading,
+  preview
 }) {
   return (
     <>
@@ -49,13 +50,13 @@ export default function Layout({
 
       {simple ? (
         <>
-          <Header simple={simple} />
+          <Header simple={simple} preview={preview} />
           <Main>{loading ? <Loader /> : children}</Main>
           <Footer />
         </>
       ) : (
         <CrystallizeLayout right={Aside}>
-          <Header simple={simple} />
+          <Header simple={simple} preview={preview} />
           <Main>{loading ? <Loader /> : children}</Main>
           <Footer />
         </CrystallizeLayout>
