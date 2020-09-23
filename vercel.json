@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    { "source": "/guidetilnorgesfugleliv*", "destination": "/utgivelser/guide-til-norges-fugleliv", "permanent": true  },
+    { "source": "/utsira*", "destination": "/utgivelser/utsira", "permanent": true },
+    { "source": "/SyEnBunad*", "destination": "/utgivelser/sy-en-bunad", "permanent": true }
+    { "source": "/sommerfugler*", "destination": "/utgivelser/sommerfugler", "permanent": true }
+    { "source": "/kikkogbruk*", "destination": "/utgivelser/kikk-og-bruk", "permanent": true }
+    { "source": "/smaaviltguiden*", "destination": "/utgivelser/smaviltguiden", "permanent": true }
+  ]
+}
