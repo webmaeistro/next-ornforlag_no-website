@@ -22,9 +22,7 @@ function Loader({ children }) {
         <SpinnerWrapper>
           <Spinner size="40" />
         </SpinnerWrapper>
-        <LoadingTextWrapper>
-          {children || 'Vennligst vent...'}
-        </LoadingTextWrapper>
+        <LoadingTextWrapper>{children || 'Please wait...'}</LoadingTextWrapper>
       </div>
     </LoadingWrapper>
   );

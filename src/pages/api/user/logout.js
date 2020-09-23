@@ -3,5 +3,5 @@ export default (req, res) => {
     'Set-Cookie',
     'token=deleted; HttpOnly; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT'
   );
-  return res.status(200).json({ message: 'Logged out successfully' });
+  return res.status(200).json({ message: 'Utlogging gjennomført' });
 };

@@ -14,10 +14,9 @@ function getEmailHtml(loginLink) {
     <mj-body>
       <mj-section>
         <mj-column>
-          <mj-text>Hei! Simpelten følg linken under for å logge deg inn på ornforlag.no.</mj-text>
-          <mj-button href="${loginLink}" align="center">Har ingen funksjon men trykk her for login</mj-button>
+          <mj-text>Velkommen! Simpelten følg linken under for innlogging.</mj-text>
+          <mj-button href="${loginLink}" align="center">klikk her for logge inn</mj-button>
           <mj-text>${loginLink}</mj-text>
-          <mj-text>-Ørn forlag admin. </mj-text>
         </mj-column>
       </mj-section>
     </mj-body>
@@ -40,7 +39,7 @@ export default async (req, res) => {
     expiresIn: '36000s'
   });
 
-  const magicLink = `${getHost(req)}/api/verify?token=${token}`;
+  const magicLink = `${getHost(req)}/api/user/verify?token=${token}`;
 
   // Here we would want to check whether a user already exists with the email
   // provided. This boilerplate does not have a datastore connected to it yet
@@ -57,20 +56,26 @@ export default async (req, res) => {
   // login link. If not, the link will be logged to console.
   if (sendGridApiKey) {
     sgMail.setApiKey(sendGridApiKey);
-    await sgMail.send({
-      to: email,
-      from: 'webmaster@ornforlag.no',
-      subject: 'Login link for Ørn forlag',
-      html
-    });
+    try {
+      await sgMail.send({
+        to: email,
+        from: 'webmaster@ornforlag.no',
+        subject: 'Magic Link',
+        html
+      });
+    } catch (e) {
+      return res.json({
+        message: 'Email NOT sent'
+      });
+    }
   } else {
     return res.json({
-      message: 'Epost sendt! Verifikasjons linken vil utløpe om 1 time.',
+      message: 'Epost sendt! Linken er gylding i 1 klokke time',
       magicLink
     });
   }
 
   return res.json({
-    message: 'Epost sendt! Verifikasjons linken vil utløpe om 1 time.'
+    message: 'Epost sendt! Linken er gylding i 1 klokke time'
   });
 };
