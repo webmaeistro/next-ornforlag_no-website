@@ -19,7 +19,7 @@ function orderToVippsBody({ paymentModel, orderId, host }) {
         {
           isDefault: 'Y',
           priority: 0,
-          shippingCost: 0,
+          shippingCost: 99,
           shippingMethod: 'Posten Servicepakke',
           shippingMethodId: 'posten-servicepakke'
         }
@@ -29,7 +29,7 @@ function orderToVippsBody({ paymentModel, orderId, host }) {
     transaction: {
       orderId,
       amount: parseInt(paymentModel.total.gross * 100, 10),
-      transactionText: 'Crystallize NextJS boilerplate test transaction'
+      transactionText: 'Ørn forlag | Netthandel tranasksjon fra ornforlag.no'
     }
   };
 }

@@ -28,7 +28,13 @@ export default {
       relatedProduct: 'Relatert produkt',
       relatedProduct_plural: 'Relaterte produkter',
       addToBasket: 'Legg i hurtigkurv',
-      buy: 'Ta meg ditt'
+      buy: 'KJØP',
+      attributes: {
+        color: 'Color',
+        green: 'Green',
+        blue: 'Blue',
+        black: 'Black'
+      }
     },
     basket: {
       title: 'Hurtigkurv',
@@ -36,7 +42,7 @@ export default {
       removeItem: 'Fjern {{name}} fra hurtigkurven',
       empty: 'Hurtigkurven din er tom',
       empty_inCheckout:
-        'Heisann, så rart å være i kassa uten noen å kjøpe? Prøv igjen, kjøp en bok davel. ;)',
+        'Her kommer alle bøkene du har valgt å putte i hurtigkurven. Den er foreløpig tom. Gå tilbake og prøv igjen!',
       remainingUntilFreeShipping:
         'Kjøp for {{amount, currency}} ekstra for å oppnå gratis frakt',
       totalPrice: 'Totalt',
@@ -66,12 +72,12 @@ export default {
     },
     order: {
       total: 'Totalt',
-      item: 'Bok',
-      item_plural: 'Bøker'
+      item: 'Vare',
+      item_plural: 'Varer'
     },
     layout: {
-      menu: 'Menu',
-      ecomBy: 'Made by',
+      menu: 'Meny',
+      ecomBy: 'Nettbutikk av',
       loadingVideo: 'Laster video'
     }
   }

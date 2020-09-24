@@ -28,7 +28,13 @@ export default {
       relatedProduct: 'Relatert produkt',
       relatedProduct_plural: 'Relaterte produkter',
       addToBasket: 'Legg i hurtigkurv',
-      buy: 'KJØP'
+      buy: 'KJØP',
+      attributes: {
+        color: 'Color',
+        green: 'Green',
+        blue: 'Blue',
+        black: 'Black'
+      }
     },
     basket: {
       title: 'Hurtigkurv',
@@ -66,12 +72,12 @@ export default {
     },
     order: {
       total: 'Totalt',
-      item: 'Bok',
-      item_plural: 'Bøker'
+      item: 'Vare',
+      item_plural: 'Varer'
     },
     layout: {
       menu: 'Meny',
-      ecomBy: 'Nettside av',
+      ecomBy: 'Nettbutikk av',
       loadingVideo: 'Laster video'
     }
   }

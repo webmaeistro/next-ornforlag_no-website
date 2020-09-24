@@ -6,7 +6,7 @@ export default async (req, res) => {
   try {
     const orderId = req.query.orderId[req.query.orderId.length - 1];
 
-    const validCrystallizeOrder = await orderNormalizer({
+    const validCrystallizeOrder = orderNormalizer({
       vippsOrderId: orderId,
       vippsData: req.body
     });

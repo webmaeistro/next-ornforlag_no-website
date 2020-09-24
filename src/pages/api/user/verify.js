@@ -17,7 +17,7 @@ export default (req, res) => {
 
     res.setHeader(
       'Set-Cookie',
-      `token=${signedLoginToken}; HttpOnly; Max-Age=3600; Path=/`
+      `token=${signedLoginToken}; HttpsOnly; Max-Age=3600; Path=/`
     );
     res.setHeader('Location', '/');
     return res.status(302).json({ message: 'User is verified' });

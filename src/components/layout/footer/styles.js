@@ -11,7 +11,7 @@ export const Outer = styled.footer`
 `;
 
 export const Logo = styled.div`
-  width: 85px;
+  width: 80px;
 `;
 
 export const Powered = styled.div`

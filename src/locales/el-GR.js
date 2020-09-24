@@ -2,76 +2,83 @@ export default {
   translation: {
     common: {
       price: '{{value, currency}}',
-      vat: 'ΦΠΑ: {{value, currency}}'
+      vat: 'Mva.: {{value, currency}}'
     },
     frontpage: {
-      title: 'Κεντρική'
+      title: 'Hjem'
     },
     customer: {
-      name: 'Ονοματεπώνυμο',
-      firstName: 'Όνομα',
-      lastName: 'Επώνυμο',
-      streetAddress: 'Διεύθυνση',
-      postalCode: 'Ταχυδρομικός κώδικας',
-      email: 'Email',
-      emailPlaceholder: 'you@your.place',
+      name: 'Navn',
+      firstName: 'Fornavn',
+      lastName: 'Etternavnn',
+      streetAddress: 'Gate',
+      postalCode: 'Postnr.',
+      email: 'Epost',
+      emailPlaceholder: 'deg@ditt.sted',
       login: {
-        title: 'Σύνδεση',
-        loggedIn: 'Είστε συνδεδεμένος/η',
+        title: 'Logg inn',
+        loggedIn: 'Du er logget inn',
         instructions:
-          'Εισάγετε τη διεύθυνση ηλεκτρονικού ταχυδρομίου σας και θα σας στείλουμε ένα σύνδεσμο σύνδεσης στο λογαριασμό σας.',
-        emailAddressInvalid: 'Παρακαλώ εισάγετε έναν έγκυρο σύνδεσμο',
-        sendMagicLink: 'Στείλε μου σύνδεσμο'
+          'Tast inn din epostaddresse og vi vil sende deg en passordfri innlogginslink',
+        emailAddressInvalid: 'Vennligst oppgi en gyldig epostaddresse',
+        sendMagicLink: 'Send meg innloggingslink på epost'
       }
     },
     product: {
-      relatedProduct: 'Σχετικό προϊόν',
-      relatedProduct_plural: 'Σχετικά προϊόντα',
-      addToBasket: 'Προσθήκη στο καλάθι',
-      buy: 'ΑΓΟΡΑ'
+      relatedProduct: 'Relatert produkt',
+      relatedProduct_plural: 'Relaterte produkter',
+      addToBasket: 'Legg i hurtigkurv',
+      buy: 'KJØP',
+      attributes: {
+        color: 'Color',
+        green: 'Green',
+        blue: 'Blue',
+        black: 'Black'
+      }
     },
     basket: {
-      title: 'Καλάθι',
-      loading: 'Περίμενε. Φορτώνουμε το καλάθι σου...',
-      removeItem: 'Αφαίρεσε {{name}} από το καλάθι',
-      empty: 'Το καλάθι σου είναι άδειο',
-      empty_inCheckout: 'Δεν έχεις προϊόντα στο καλάθι',
+      title: 'Hurtigkurv',
+      loading: 'Vennligst vent. Henter din hurtigkurv...',
+      removeItem: 'Fjern {{name}} fra hurtigkurven',
+      empty: 'Hurtigkurven din er tom',
+      empty_inCheckout:
+        'Her kommer alle bøkene du har valgt å putte i hurtigkurven. Den er foreløpig tom. Gå tilbake og prøv igjen!',
       remainingUntilFreeShipping:
-        'Πρόσθεσε {{amount, currency}} στην παραγγελία σου για δωρεάν μεταφορικά.',
-      totalPrice: 'Συνολική τιμή',
-      discount: 'Έκπτωση',
-      totalPriceAfterDiscount: 'Τελική τιμή μετά την έκπτωση',
-      shippingPrice: 'Μεταφορικά',
-      vat: 'ΦΠΑ',
-      totalToPay: 'Αξία',
-      goToCheckout: 'Oλοκλήρωση παραγγελίας'
+        'Kjøp for {{amount, currency}} ekstra for å oppnå gratis frakt',
+      totalPrice: 'Totalt',
+      discount: 'Fratrekk',
+      totalPriceAfterDiscount: 'Totalt etter fratrekk',
+      shippingPrice: 'Frakt',
+      vat: 'Mva.',
+      totalToPay: 'Totalen i Vipps',
+      goToCheckout: 'Gå til Vipps betaling'
     },
     checkout: {
-      title: 'Oλοκλήρωση παραγγελίας',
-      payNow: 'Εξόφληση τώρα',
-      choosePaymentMethod: 'Επίλεξτε τρόπο πληρωμής',
-      noPaymentProvidersConfigured: 'Κανένας τρόπος πληρωμής δεν έχει διαμορφωθεί',
+      title: 'Betaling med Vipps',
+      payNow: 'Betal med Vipps Hurtigkasse',
+      choosePaymentMethod: 'Tast inn ditt Vipps nr',
+      noPaymentProvidersConfigured: 'Ingen betalingstjenester er konfigurert',
       paymentProviderNotConfigured:
-        'Ο πάροχος πληρωμών {{name}} δεν έχει διαμορφωθεί',
-      paymentProviderLogoAlt: 'Λογότυπο για {{name}}',
-      loadingPaymentGateway: 'Αρχικοποίηση τρόπου πληρωμής...',
+        'Betalingstjenesten {{name}} er ikke konfigurert',
+      paymentProviderLogoAlt: 'Logo for {{name}}',
+      loadingPaymentGateway: 'Ørn brer sine vinger mot Vipps...',
       loadingPaymentGatewayFailed:
-        'Ωχ, φαίνεται πως δεν μπορούσαμε να αρχικοποιήσουμε τον τρόπο πληρωμής: {{name}}',
+        'Oisann. Betalingstjenesten {{name}} kan ikke lastes akkurat nå',
       confirmation: {
-        title: 'Επιβεβαίωση παραγγελίας',
-        shortStatus: `Η παραγγελία σας έχει επιβεβαιωθεί.`,
-        shortStatus_withEmail: `Η παραγγελία σας έχει επιβεβαιωθεί. Ένα αντίγραφο έχει αποσταλεί στη διεύθυνση: {{email}}`
+        title: 'Ordrebekreftelse',
+        shortStatus: `Din ordre er bekreftet`,
+        shortStatus_withEmail: `Din ordre er bekreftet. En kopi av ordren er send til {{email}}`
       }
     },
     order: {
-      total: 'Σύνολο',
-      item: 'Αντικείμενο παραγγελίας',
-      item_plural: 'Αντικείμενα παραγγελίας'
+      total: 'Totalt',
+      item: 'Vare',
+      item_plural: 'Varer'
     },
     layout: {
-      menu: 'Μενού',
-      ecomBy: 'Ηλεκτρονικό κατάστημα από',
-      loadingVideo: 'Το βίνετο φορτώνει'
+      menu: 'Meny',
+      ecomBy: 'Nettbutikk av',
+      loadingVideo: 'Laster video'
     }
   }
 };
