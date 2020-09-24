@@ -6,14 +6,13 @@ import dynamic from 'next/dynamic';
 import styled from 'styled-components';
 
 import appConfig, { useLocale } from 'lib/app-config';
-//              ^
+
 import { useT } from 'lib/i18n';
 import { useBasket } from 'components/basket';
 import {
-  //Form,
-  //Input,
-  //InputGroup,
-  //Label,
+  Input,
+  InputGroup,
+  Label,
   PaymentSelector,
   PaymentProviders,
   PaymentButton,
@@ -38,7 +37,7 @@ export default function Payment() {
 
   const { cart, metadata } = useBasket();
   const [selectedPaymentProvider, setSelectedPaymentProvider] = useState(null);
-  const [state] = useState({
+  const [state, setState] = useState({
     firstName: '',
     lastName: '',
     email: ''
@@ -63,7 +62,6 @@ export default function Payment() {
       ]
     }
   };
-
   const paymentProviders = [
     /*
     {
@@ -131,13 +129,8 @@ export default function Payment() {
 
   return (
     <Inner>
-      {/*  <Form noValidate> */}
-      <Row>
-        Hvis betalingen ble startet på en PC sendes du til Vipps sin
-        landingsside. Der bekrefter du telefonnummeret ditt, og får beskjed om å
-        logge inn i Vipps. Hvis betalingen ble startet på en mobil, vil du bli
-        automatisk byttet til Vipps appen din.
-        {/*
+      <form noValidate>
+        <Row>
           <InputGroup>
             <Label htmlFor="firstname">{t('customer.firstName')}</Label>
             <Input
@@ -172,8 +165,9 @@ export default function Payment() {
               required
             />
           </InputGroup>
-           */}
-      </Row>
+        </Row>
+      </form>
+
       <div>
         <SectionHeader>{t('checkout.choosePaymentMethod')}</SectionHeader>
         {appConfig.paymentProviders.length === 0 ? (
