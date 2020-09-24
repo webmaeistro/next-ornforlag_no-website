@@ -119,6 +119,7 @@ export default function VideoPlayer({
         }
       };
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sources, autoplay, controls, loop, fluid]);
 
   if (!sources || sources.length === 0) {
