@@ -1,5 +1,8 @@
 {
     "editor.formatOnSave": true,
     "standard.enable": false,
-    "npm-scripts.showStartNotification": false
+    "npm-scripts.showStartNotification": false,
+    "files.watcherExclude": {
+        "**/node_modules/**": false
+    }
 }
