@@ -1,6 +1,6 @@
 export default `
   query getOrder($id: ID!){
-    order {
+    orders {
       get(id: $id) {
         id
         total {
@@ -41,11 +41,6 @@ export default `
           addresses {
             type
             email
-            phone
-            street
-            postalCode
-            city
-            country
           }
         }
       }

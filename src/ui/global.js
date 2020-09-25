@@ -20,16 +20,16 @@ export default createGlobalStyle`
     --color-vipps-rust: #9B3716;
   }
 /*
-  /* Uncomment this to enable dark mode */
-  //@media (prefers-color-scheme: dark) {
-//    :root {
- //     --color-main-background: #020210;
-  //    --color-text-main: #fff;
-  //    --color-text-sub: #ddd;
-  //    --color-box-background: #555;
-//    }
- // } 
-  */
+  /* Uncomment this to enable dark mode 
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-main-background: #020210;
+      --color-text-main: #fff;
+     --color-text-sub: #ddd;
+      --color-box-background: #555;
+    }
+  } 
+*/
   html {
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
@@ -37,7 +37,7 @@ export default createGlobalStyle`
 
   body {
     margin: 0;
-    font: 16px/1 roboto, sans-serif;
+    font: 16px/1 VippsText, sans-serif;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     background: var(--color-main-background);

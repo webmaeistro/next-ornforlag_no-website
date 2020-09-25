@@ -1,11 +1,9 @@
-module.exports = {
-  async redirects() {
-    return [
-      {
-        source: '/web-frontpage',
-        destination: '/',
-        permanent: true
-      }
-    ];
-  }
-};
+export async function redirects() {
+  return [
+    {
+      source: '/web-frontpage',
+      destination: '/',
+      permanent: true
+    }
+  ];
+}

@@ -6,7 +6,7 @@ export const Outer = styled.div`
   z-index: 15;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
 `;
 
 export const Items = styled.ul`

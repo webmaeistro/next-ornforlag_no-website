@@ -16,7 +16,6 @@ export const Img = styled(Image)`
   height: 100%;
   display: block;
   margin: 0 auto;
-
   > img {
     display: block;
     object-fit: contain;
@@ -58,24 +57,20 @@ export const Outer = styled.a`
   height: 100%;
   display: flex;
   padding: 0 50px;
-
   &:hover {
     text-decoration: none;
   }
-
   button {
     margin: 0 auto;
     min-width: 200px;
     max-width: 80%;
   }
-
   ${responsive.xs} {
     flex-direction: column-reverse;
     text-align: center;
     margin-bottom: 15px;
     padding: 50px;
   }
-
   ${responsive.mdPlus} {
     /* Each grid type size generates a class "cell-COLUMNxROW" */
     &.cell-1x1 {

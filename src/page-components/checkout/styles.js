@@ -20,11 +20,6 @@ export const Inner = styled.div`
   }
 `;
 
-export const Form = styled.form`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-`;
 export const Label = styled.div`
   font-size: 0.7rem;
   /* padding-left: 15px; */
@@ -74,7 +69,7 @@ export const ErrorMessage = styled.p`
   margin-top: 1rem;
 `;
 
-export const VippsWrapper = styled.div`
+export const StripeWrapper = styled.div`
   width: 100%;
   padding-bottom: 1rem;
 `;
@@ -89,14 +84,14 @@ export const PaymentButton = styled.button`
   background: ${(p) => p.color};
   font-size: 18px;
   padding: 0.5rem;
-  width: 100%;
+  width: 32%;
   margin-right: 1%;
   height: 80px;
   border-radius: 10px;
 
   img {
-    max-width: 250px;
-    max-height: 80px;
+    max-width: 100px;
+    max-height: 25px;
     display: block;
     margin: 0 auto;
   }
@@ -104,6 +99,11 @@ export const PaymentButton = styled.button`
   &:last-child {
     border-bottom: none;
   }
+
+  opacity: 0.5;
+  ${is('selected')`
+    opacity: 1;
+  `};
 `;
 
 export const PaymentProvider = styled.div`

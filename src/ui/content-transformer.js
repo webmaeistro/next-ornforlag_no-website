@@ -12,7 +12,7 @@ const commonTransfomerOverrides = {
         {renderNode(rest)}
       </a>
     );
-  },
+  }
 };
 
 const maxWidth = '600px';
