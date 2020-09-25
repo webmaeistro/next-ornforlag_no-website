@@ -41,7 +41,7 @@ typings/
 
 # Optional npm cache directory
 .npm
-
+*npm-debug.log
 # Optional eslint cache
 .eslintcache
 
