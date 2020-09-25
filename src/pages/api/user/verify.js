@@ -13,11 +13,11 @@ export default (req, res) => {
   try {
     const decoded = jwt.verify(token, secret);
     const { email } = decoded;
-    const signedLoginToken = jwt.sign({ email }, secret, { expiresIn: '12h' });
+    const signedLoginToken = jwt.sign({ email }, secret, { expiresIn: '1h' });
 
     res.setHeader(
       'Set-Cookie',
-      `token=${signedLoginToken}; HttpOnly; Max-Age=3600; Path=/`
+      `token=${signedLoginToken}; HttpsOnly; Max-Age=3600; Path=/`
     );
     res.setHeader('Location', '/');
     return res.status(302).json({ message: 'User is verified' });
