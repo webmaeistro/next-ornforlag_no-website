@@ -10,7 +10,7 @@ function orderToVippsBody({ paymentModel, orderId, host }) {
       merchantSerialNumber: process.env.VIPPS_MERCHANT_SERIAL,
       callbackPrefix: `${host}/api/payment-providers/vipps/order-update`,
       shippingDetailsPrefix: host,
-      fallBack: `${host}/api/payment-providers/vipps/fallback/${orderId}?multilingualUrlPrefix=${paymentModel.multilingualUrlPrefix}`,
+      fallBack: `${host}/api/payment-providers/vipps/fallback/${orderId}`,
       consentRemovalPrefix: `${host}/api/payment-providers/vipps/constent-removal`,
       paymentType: 'eComm Express Payment',
       isApp: false,
