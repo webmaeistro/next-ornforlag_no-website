@@ -17,13 +17,11 @@ const CheckoutBtn = styled(Button)`
   font-size: 16px;
   font-weight: 600;
   text-align: center;
-
   &:not([disabled]):hover {
     background: var(--color-text-main);
     color: var(--color-main-background);
     text-decoration: none;
   }
-
   &[disabled] {
     cursor: default;
     opacity: 0.5;
