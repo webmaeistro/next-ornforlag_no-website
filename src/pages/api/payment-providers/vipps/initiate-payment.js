@@ -10,7 +10,7 @@ function orderToVippsBody({ paymentModel, orderId, host }) {
       merchantSerialNumber: process.env.VIPPS_MERCHANT_SERIAL,
       callbackPrefix: `${host}/api/payment-providers/vipps/order-update`,
       shippingDetailsPrefix: host,
-      fallBack: `${host}/api/payment-providers/vipps/fallback/${orderId}`,
+      fallBack: `${host}/api/payment-providers/vipps/fallback/${orderId}?multilingualUrlPrefix=${paymentModel.multilingualUrlPrefix}`,
       consentRemovalPrefix: `${host}/api/payment-providers/vipps/constent-removal`,
       paymentType: 'eComm Express Payment',
       isApp: false,
@@ -29,7 +29,7 @@ function orderToVippsBody({ paymentModel, orderId, host }) {
     transaction: {
       orderId,
       amount: parseInt(paymentModel.total.gross * 100, 10),
-      transactionText: 'Ørn forlag | Netthandel tranasksjon fra ornforlag.no'
+      transactionText: 'Ørn forlag - Netthandel tranasksjon fra ornforlag.no'
     }
   };
 }
@@ -38,7 +38,9 @@ export default async (req, res) => {
   try {
     const { paymentModel } = req.body;
 
-    const validPaymentModel = await validatePaymentModel({ paymentModel });
+    const validPaymentModel = await validatePaymentModel({
+      paymentModel
+    });
     const host = getHost(req);
 
     const createCrystallizeOrderResponse = await createCrystallizeOrder(

@@ -73,7 +73,9 @@ export default function VippsOrderNormalizer({
       customer,
       cart,
       total,
-      additionalInformation: JSON.stringify({ status: 'initiated' })
+      additionalInformation: JSON.stringify({
+        status: 'initiated'
+      })
     };
   }
 }
