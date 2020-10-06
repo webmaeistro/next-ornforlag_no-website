@@ -14,7 +14,9 @@ export const createCrystallizeOrder = (variables) =>
 export const fetchCrystallizeOrder = (orderId) =>
   callOrdersApi({
     query: orderQuery,
-    variables: { id: orderId },
+    variables: {
+      id: orderId
+    },
     operationName: 'getOrder'
   });
 
