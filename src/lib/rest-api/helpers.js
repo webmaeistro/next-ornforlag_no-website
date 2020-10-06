@@ -1,7 +1,7 @@
 let hostName;
 if (typeof window !== 'undefined') {
   const l = window.location;
-  hostName = `${l.protocol}//${l.host}`;
+  hostName = `${l.protocol}/${l.host}`;
 }
 
 export const doPost = async (url, options) => {
@@ -19,7 +19,7 @@ export const doPost = async (url, options) => {
       opts.body = opts.body.toString();
     }
 
-    const response = await fetch(`${hostName}${url}`, opts);
+    const response = await fetch(`${hostName}/${url}`, opts);
 
     return response.json();
   } catch (error) {
