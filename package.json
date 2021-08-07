@@ -48,7 +48,7 @@
     "dashjs": "^4.0.1",
     "framer-motion": "^1.11.1",
     "i18next": "^19.5.4",
-    "immer": "^7.0.9",
+    "immer": "^9.0.5",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.19",
     "mjml": "^4.6.3",
