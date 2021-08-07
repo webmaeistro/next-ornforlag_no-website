@@ -1,28 +1,27 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
-import { useAuth } from 'components/auth-context';
 import { useSettings } from 'components/settings-context';
-import Link from 'components/link';
-import { useT } from 'lib/i18n';
+import IconUser from 'ui/icons/user';
 
 import BurgerButton from './burger-button';
 import BasketButton from './basket-button';
 import LocaleSwitcher from './locale-switcher';
+import Search from './search';
 import {
   Outer,
   Nav,
+  Btn,
   Logo,
-  NavActions,
   NavList,
   NavListItem,
-  PreviewBar
+  PreviewBar,
+  IconBar
 } from './styles';
 
 export default function Header({ simple, preview }) {
-  const t = useT();
   const { mainNavigation } = useSettings();
-  const auth = useAuth();
   const router = useRouter();
 
   const [navOpen, setNavOpen] = useState(false);
@@ -39,37 +38,32 @@ export default function Header({ simple, preview }) {
         </PreviewBar>
       )}
       <Outer simple={simple}>
-        <Link href="/">
-          <a>
-            <Logo>
-              <img src="/static/shop-logo.svg" alt="Ørn forlag" />
-            </Logo>
-          </a>
+        <Link href="/" passHref>
+          <Logo aria-label="Ørn forlag">
+            <img src="/static/shop-logo.svg" alt="" width="207" height="35" />
+          </Logo>
         </Link>
         <Nav open={navOpen}>
           <NavList>
-            {mainNavigation.map((category) => (
+            {mainNavigation?.map((category) => (
               <NavListItem key={category.path}>
-                <Link as={category.path} href="/[...catalogue]">
+                <Link href={category.path}>
                   <a onClick={() => setNavOpen(false)}>{category.name}</a>
                 </Link>
               </NavListItem>
             ))}
           </NavList>
         </Nav>
-        <NavActions open={navOpen}>
+        <IconBar>
           <LocaleSwitcher />
-          {auth.isLoggedIn ? (
-            <button type="button" onClick={auth.logout}>
-              .
-            </button>
-          ) : (
-            <Link href="/login">
-              <a>{t('customer.login.title')}</a>
-            </Link>
-          )}
-        </NavActions>
-        {!simple && <BasketButton />}
+          <Link href="/account">
+            <Btn as="a" aria-label="User area">
+              <IconUser />
+            </Btn>
+          </Link>
+          <Search />
+          <BasketButton />
+        </IconBar>
         <BurgerButton active={navOpen} onClick={() => setNavOpen(!navOpen)} />
       </Outer>
     </>

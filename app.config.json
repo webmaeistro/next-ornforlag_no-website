@@ -7,8 +7,8 @@
       "isDefault": true,
       "displayName": "Norwegian - NO",
       "urlPrefix": "",
-      "appLanguage": "nb-NO",
-      "crystallizeCatalogueLanguage": "en",
+      "appLanguage": "nb",
+      "crystallizeCatalogueLanguage": "nb",
       "defaultCurrency": "NOK"
     }
   ]

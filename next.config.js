@@ -2,7 +2,7 @@ module.exports = {
   async redirects() {
     return [
       {
-        source: '/web-frontpage',
+        source: '/_web-frontpage',
         destination: '/',
         permanent: true
       }
